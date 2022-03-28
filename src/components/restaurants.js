@@ -1,11 +1,4 @@
-export const Restaurant = [
-  {
-    restaurant: 'Abendmahl',
-    address: 'Hein-Köllisch-Platz  6, 20359 Hamburg',
-    description:
-      'Abseits vom Trubel auf dem Kiez bietet das Abendmahl ein Ambiente zum wohlfühlen. Entspannen Sie sich bei frischen, internationalen Speisen.',
-    url: 'http://www.hamburg-tourism.de/erleben/essen-trinken/alle-restaurants-im-blick/abendmahl/',
-  },
+export const Restaurants = [
   {
     restaurant: 'Al Volo',
     address: 'Eppendorfer Weg 211, 20253 Hamburg ',

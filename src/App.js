@@ -1,4 +1,4 @@
-import RestaurantCard from './components/Restaurant-Card';
+import RestaurantCard from './components/RestaurantCard';
 
 export default function App() {
   return <RestaurantCard />;
