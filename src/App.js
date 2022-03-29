@@ -1,3 +1,5 @@
+import RestaurantCard from './components/RestaurantCard';
+
 export default function App() {
-  return <h1>Restaurant-Randomizer</h1>;
+  return <RestaurantCard />;
 }
