@@ -1,15 +1,15 @@
-import { Restaurants } from './restaurants';
+import { restaurants } from './restaurants';
 import styled from 'styled-components';
 
 export default function RestaurantCard() {
   const randomRestaurant =
-    Restaurants[Math.floor(Math.random() * Restaurants.length)];
+    restaurants[Math.floor(Math.random() * restaurants.length)];
 
   return (
     <SytledRestaurantCard>
       <h2>{randomRestaurant.restaurant}</h2>
       <p>{randomRestaurant.address}</p>
-      <StyledSpan>Description:</StyledSpan>
+      <StyledDescription>Description:</StyledDescription>
       <p>{randomRestaurant.description}</p>
       <a href={randomRestaurant.url}>Link</a>
     </SytledRestaurantCard>
@@ -24,6 +24,6 @@ const SytledRestaurantCard = styled.div`
   padding: 10px;
   margin: 20px;
 `;
-const StyledSpan = styled.span`
+const StyledDescription = styled.span`
   font-weight: bold;
 `;

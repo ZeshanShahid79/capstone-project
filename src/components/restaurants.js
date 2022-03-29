@@ -1,4 +1,4 @@
-export const Restaurants = [
+export const restaurants = [
   {
     restaurant: 'Al Volo',
     address: 'Eppendorfer Weg 211, 20253 Hamburg ',
