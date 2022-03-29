@@ -12,8 +12,12 @@ export default function RestaurantCard() {
       <StyledDescription>Description:</StyledDescription>
       <p>{randomRestaurant.description}</p>
       <a href={randomRestaurant.url}>Link</a>
+      <button onClick={refreshPage}>Random</button>
     </SytledRestaurantCard>
   );
+  function refreshPage() {
+    window.location.reload(false);
+  }
 }
 
 const SytledRestaurantCard = styled.div`
