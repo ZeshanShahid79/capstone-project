@@ -4,9 +4,15 @@ import RestaurantCard from './RestaurantCard';
 
 describe('RestaurantCard', () => {
   it('renders a Card with Name, Description and a Link', () => {
-    render(<RestaurantCard />);
+    render(
+      <RestaurantCard
+        name="Green Papaya"
+        restaurantAddress="Grandweg 120, 22529 Hamburg"
+        restaurantDescription="Bistro-Spezialitäten für den Hunger zwischendurch"
+      />
+    );
 
-    const restaurantName = screen.getByText('Green Papaya', { exact: false });
+    const name = screen.getByText(/Green Papaya/i);
     const restaurantAddress = screen.getByText('Grandweg 120, 22529 Hamburg', {
       exact: false,
     });
@@ -19,7 +25,7 @@ describe('RestaurantCard', () => {
     const randomButton = screen.getByRole('button', { name: /random/i });
 
     expect(restaurantAddress).toBeInTheDocument();
-    expect(restaurantName).toBeInTheDocument();
+    expect(name).toBeInTheDocument();
     expect(restaurantDescriptionHeader).toBeInTheDocument();
     expect(restaurantDescription).toBeInTheDocument();
     expect(restaurantLink).toBeInTheDocument();
