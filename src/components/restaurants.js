@@ -68,13 +68,6 @@ export const Restaurants = [
     url: 'http://www.hamburg-tourism.de/erleben/essen-trinken/alle-restaurants-im-blick/barcelona-tapas/',
   },
   {
-    restaurant: 'BEN',
-    address: 'Mittelweg 26, 20148 Hamburg',
-    description:
-      'Neben klassischen Thai-Currys für Liebhaber von Kokosmilch und Koriander, bietet das BEN im Mittelweg  mit seinen Monats-Specials auch Gerichte für alle, die mit der thailändischen Küche (noch) nicht vertraut sind. Die Schärfe ist bei allen Gerichten individuell wählbar. Außerdem beinhaltet die Karte ein exklusives Angebot an originellen Maki-Rollen, so dass auch Sushi-Fans bestens aufgehoben sind.',
-    url: 'http://www.hamburg-tourism.de/erleben/essen-trinken/alle-restaurants-im-blick/ben/',
-  },
-  {
     restaurant: 'Bistrot Vienna',
     address: 'Fettstraße 2, 20357 Hamburg',
     description:
@@ -485,13 +478,6 @@ export const Restaurants = [
     description:
       'Der Name ist Programm. Beim Kiez Curry werden Feierwütige vor oder nach dem Ausgehen auf der Reeperbahn mit dem Imbiss-Klassiker versorgt.',
     url: 'http://www.hamburg-tourism.de/erleben/essen-trinken/alle-restaurants-im-blick/kiez-curry/',
-  },
-  {
-    restaurant: 'Kimzen',
-    address: 'Schulterblatt 58a, 20357 Hamburg',
-    description:
-      'Leichte koreanische Köstlichkeiten direkt auf dem Schulterblatt. Ein Familienbetrieb mit unverwechselbar freundlichem Service.',
-    url: 'http://www.hamburg-tourism.de/erleben/essen-trinken/alle-restaurants-im-blick/kimzen/',
   },
   {
     restaurant: 'Kleine Pause',

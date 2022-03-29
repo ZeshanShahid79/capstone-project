@@ -9,7 +9,7 @@ export default function RestaurantCard() {
     <SytledRestaurantCard>
       <h2>{randomRestaurant.restaurant}</h2>
       <p>{randomRestaurant.address}</p>
-      <StyledSpan>Beschreibung:</StyledSpan>
+      <StyledSpan>Description:</StyledSpan>
       <p>{randomRestaurant.description}</p>
       <a href={randomRestaurant.url}>Link</a>
     </SytledRestaurantCard>
