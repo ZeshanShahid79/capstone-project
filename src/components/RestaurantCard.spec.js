@@ -12,10 +12,8 @@ describe('RestaurantCard', () => {
       />
     );
 
-    const name = screen.getByText(/Green Papaya/i);
-    const restaurantAddress = screen.getByText('Grandweg 120, 22529 Hamburg', {
-      exact: false,
-    });
+    const name = screen.getByRole('heading', /Green Papaya/i);
+    const restaurantAddress = screen.getByRole(/Grandweg 120, 22529 Hamburg/i);
     const restaurantDescriptionHeader = screen.getByText(/description/i);
     const restaurantDescription = screen.getByText(
       'Bistro-Spezialitäten für den Hunger zwischendurch',
