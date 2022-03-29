@@ -1,10 +1,6 @@
-import { restaurants } from './restaurants';
 import styled from 'styled-components';
 
-export default function RestaurantCard() {
-  const randomRestaurant =
-    restaurants[Math.floor(Math.random() * restaurants.length)];
-
+export default function RestaurantCard({ randomRestaurant }) {
   return (
     <SytledRestaurantCard>
       <h2>{randomRestaurant.restaurant}</h2>
@@ -12,15 +8,11 @@ export default function RestaurantCard() {
       <StyledDescription>Description:</StyledDescription>
       <p>{randomRestaurant.description}</p>
       <a href={randomRestaurant.url}>Link</a>
-      <button onClick={refreshPage}>Random</button>
     </SytledRestaurantCard>
   );
-  function refreshPage() {
-    window.location.reload(false);
-  }
 }
 
-const SytledRestaurantCard = styled.div`
+const SytledRestaurantCard = styled.article`
   display: flex;
   flex-direction: column;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
@@ -28,6 +20,6 @@ const SytledRestaurantCard = styled.div`
   padding: 10px;
   margin: 20px;
 `;
-const StyledDescription = styled.span`
+const StyledDescription = styled.h3`
   font-weight: bold;
 `;

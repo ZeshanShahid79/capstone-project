@@ -3,30 +3,24 @@ import { render, screen } from '@testing-library/react';
 import RestaurantCard from './RestaurantCard';
 
 describe('RestaurantCard', () => {
-  it('renders a Card with Name, Description and a Link', () => {
-    render(
-      <RestaurantCard
-        name="Green Papaya"
-        restaurantAddress="Grandweg 120, 22529 Hamburg"
-        restaurantDescription="Bistro-Spezialitäten für den Hunger zwischendurch"
-      />
-    );
+  it('renders a Card with Name, Address, Description and a Link', () => {
+    const randomRestaurant = {
+      restaurant: 'Green Papaya',
+      address: 'Grandweg 120, 22529 Hamburg',
+      description: 'Bistro-Spezialitäten für den Hunger zwischendurch',
+      url: 'test',
+    };
 
-    const name = screen.getByRole('heading', /Green Papaya/i);
-    const restaurantAddress = screen.getByRole(/Grandweg 120, 22529 Hamburg/i);
-    const restaurantDescriptionHeader = screen.getByText(/description/i);
-    const restaurantDescription = screen.getByText(
-      'Bistro-Spezialitäten für den Hunger zwischendurch',
-      { exact: false }
-    );
-    const restaurantLink = screen.getByRole('a', { name: /Link/i });
-    const randomButton = screen.getByRole('button', { name: /random/i });
+    render(<RestaurantCard randomRestaurant={randomRestaurant} />);
 
-    expect(restaurantAddress).toBeInTheDocument();
-    expect(name).toBeInTheDocument();
-    expect(restaurantDescriptionHeader).toBeInTheDocument();
-    expect(restaurantDescription).toBeInTheDocument();
-    expect(restaurantLink).toBeInTheDocument();
-    expect(randomButton).toBeInTheDocument();
+    const card = screen.getByRole('article');
+    const link = screen.getByRole('link');
+
+    expect(card).toContainElement(link);
+    expect(card).toHaveTextContent(
+      'Green Papaya',
+      'Grandweg 120, 22529 Hamburg',
+      'Bistro-Spezialitäten für den Hunger zwischendurch'
+    );
   });
 });
