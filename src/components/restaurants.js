@@ -810,13 +810,6 @@ export const restaurants = [
     url: 'http://www.hamburg-tourism.de/erleben/essen-trinken/alle-restaurants-im-blick/rach-ritchy/',
   },
   {
-    restaurant: 'RAVEN',
-    address: 'Mittelweg 161, 20148 Hamburg',
-    description:
-      'Im neuen Design-Restaurant im edlen Stadtteil Pöseldorf trifft sich bei "Sushi & Grill" gerne auch einmal die deutsche Prominenz. Beeindruckend sind vor allem die 18 Meter lange Bar und die einmalige Dachterrasse mit bestem Alsterblick.',
-    url: 'http://www.hamburg-tourism.de/erleben/essen-trinken/alle-restaurants-im-blick/raven/',
-  },
-  {
     restaurant: 'raw like sushi & more Eppendorf',
     address: 'Martinistraße 5, 20251 Hamburg',
     description:

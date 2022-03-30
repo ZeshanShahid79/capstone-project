@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-//import userEvent from '@testing-library/user-event';
 import RestaurantCard from './RestaurantCard';
 
 describe('RestaurantCard', () => {
@@ -17,9 +16,9 @@ describe('RestaurantCard', () => {
     const link = screen.getByRole('link');
 
     expect(card).toContainElement(link);
+    expect(card).toHaveTextContent('Green Papaya');
+    expect(card).toHaveTextContent('Grandweg 120, 22529 Hamburg');
     expect(card).toHaveTextContent(
-      'Green Papaya',
-      'Grandweg 120, 22529 Hamburg',
       'Bistro-Spezialitäten für den Hunger zwischendurch'
     );
   });

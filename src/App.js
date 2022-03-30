@@ -1,5 +1,6 @@
 import RestaurantCard from './components/RestaurantCard';
 import { restaurants } from './components/restaurants';
+import Button from './components/Button';
 
 export default function App() {
   const randomRestaurant =
@@ -7,7 +8,7 @@ export default function App() {
   return (
     <>
       <RestaurantCard randomRestaurant={randomRestaurant} />
-      <button onClick={refreshPage}>Random</button>
+      <Button onClick={refreshPage}>Random</Button>
     </>
   );
   function refreshPage() {
