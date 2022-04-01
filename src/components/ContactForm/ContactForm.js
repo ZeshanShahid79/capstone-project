@@ -1,23 +1,41 @@
 import styled from 'styled-components';
+import Input from '../Input/Input';
 
 export default function ContactForm({ onSubmit }) {
   return (
-    <StyledContactForm onSubmit={onSubmit}>
-      <label>Restaurantname</label>
-      <input type="text" name="name" required={true} />
-
-      <label>Address</label>
-      <input type="text" name="Address" required={true} />
-
-      <label>E-Mail</label>
-      <input type="email" name="user_email" required={true} />
-
-      <label>Telephone</label>
-      <input type="number" name="Telephonenumber" required={true} />
-
-      <label>Message</label>
+    <StyledContactForm aria-labelledby="formHeader" onSubmit={onSubmit}>
+      <h2 id="formHeader">Contact Us</h2>
+      <Input
+        labelText="Restaurantname"
+        id="Restaurantname"
+        name="Restaurantname"
+        type="Text"
+        required={true}
+      />
+      <Input
+        labelText="Address"
+        id="Address"
+        name="Address"
+        type="Text"
+        required={true}
+      />
+      <Input
+        labelText="E-Mail"
+        id="E-Mail"
+        name="E-Mail"
+        type="E-Mail"
+        required={true}
+      />
+      <Input
+        labelText="Telephone"
+        id="Telephone"
+        name="Telephone"
+        type="number"
+        required={true}
+      />
+      <label htmlFor="Message">Message</label>
       <textarea name="message" rows="4" />
-      <input type="submit" value="Send" />
+      <input data-testid="Message" type="submit" value="Send" />
     </StyledContactForm>
   );
 }
