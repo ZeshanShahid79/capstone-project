@@ -1,8 +1,9 @@
 import Input from './Input';
 
 export default {
-  title: 'components/ContactForm/ContactForm',
+  title: 'components/Input/Input',
   component: Input,
+  argTypes: {},
 };
 
 const Template = args => <Input {...args} />;

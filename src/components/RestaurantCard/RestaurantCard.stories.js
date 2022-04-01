@@ -3,6 +3,7 @@ import RestaurantCard from './RestaurantCard.js';
 export default {
   title: 'components/RestaurantCard/RestaurantCard',
   component: RestaurantCard,
+  argTypes: {},
 };
 
 const Template = args => <RestaurantCard {...args} />;
