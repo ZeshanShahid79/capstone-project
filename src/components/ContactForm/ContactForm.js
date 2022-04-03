@@ -1,47 +1,47 @@
 import styled from 'styled-components';
 import Input from '../Input/Input';
 import emailjs from 'emailjs-com';
+import Button from '../Button/Button';
 
 export default function ContactForm() {
   return (
-    <StyledContactForm aria-labelledby="formHeader" onSubmit={onSubmit}>
+    <StyledContactForm aria-labelledby="formHeader" onSubmit={handleSubmit}>
       <h2 id="formHeader">Contact Us</h2>
+
       <Input
         labelText="Restaurantname"
         id="restaurantname"
         name="restaurantname"
         type="text"
-        required={true}
+        required
       />
       <Input
         labelText="Address"
         id="address"
         name="address"
         type="text"
-        required={true}
+        required
       />
-      <Input
-        labelText="E-Mail"
-        id="email"
-        name="email"
-        type="email"
-        required={true}
-      />
+      <Input labelText="E-Mail" id="email" name="email" type="email" required />
       <Input
         labelText="Telephone"
         id="telephone"
         name="telephone"
         type="number"
-        required={true}
+        required
       />
       <label htmlFor="message">Message</label>
       <textarea id="message" name="message" rows="4" />
-      <input data-testid="message" type="submit" value="Send" />
+
+      <Button data-testid="message" type="submit" value="Send">
+        Send
+      </Button>
     </StyledContactForm>
   );
 
-  function onSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
+    const success = '';
     emailjs
       .sendForm(
         'service_hgexx04',
@@ -49,8 +49,8 @@ export default function ContactForm() {
         event.target,
         'SHU7y_FFmZng3tHx3'
       )
-      .then(res => {
-        console.log(res);
+      .then(() => {
+        return success;
       })
 
       .catch(err => console.log(err));
