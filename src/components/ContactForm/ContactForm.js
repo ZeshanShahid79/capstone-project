@@ -1,42 +1,69 @@
-import styled from 'styled-components';
-import Input from '../Input/Input';
-import emailjs from 'emailjs-com';
+import { useState } from 'react';
 import Button from '../Button/Button';
+import FormInput from '../FormInput/FormInput';
+import styled from 'styled-components';
+import emailjs from 'emailjs-com';
 
-export default function ContactForm() {
+export default function ContactForm2() {
+  const [values, setValues] = useState({
+    restaurantname: '',
+    address: '',
+    email: '',
+    telephone: '',
+  });
+  const inputs = [
+    {
+      id: 1,
+      name: 'restaurantname',
+      type: 'text',
+      errorMessage: 'Should not include any special characters',
+      label: 'Restaurantname',
+      required: true,
+    },
+    {
+      id: 2,
+      name: 'address',
+      type: 'text',
+      errorMessage: 'Address should include Street and Number',
+      label: 'Address',
+      required: true,
+      // pattern: '^[A-za-z0–9]',
+    },
+    {
+      id: 3,
+      name: 'email',
+      type: 'email',
+      errorMessage: 'It should be a valid email address',
+      label: 'E-Mail',
+      required: true,
+    },
+    {
+      id: 4,
+      name: 'telephone',
+      type: 'text',
+      errorMessage: 'Telephonenumber should include only Numbers',
+      label: 'Telephone',
+      required: true,
+      //  pattern: '[^0-9]',
+    },
+  ];
   return (
-    <StyledContactForm aria-labelledby="formHeader" onSubmit={handleSubmit}>
-      <h2 id="formHeader">Contact Us</h2>
-
-      <Input
-        labelText="Restaurantname"
-        id="restaurantname"
-        name="restaurantname"
-        type="text"
-        required
-      />
-      <Input
-        labelText="Address"
-        id="address"
-        name="address"
-        type="text"
-        required
-      />
-      <Input labelText="E-Mail" id="email" name="email" type="email" required />
-      <Input
-        labelText="Telephone"
-        id="telephone"
-        name="telephone"
-        type="number"
-        required
-      />
+    <StyledForm onSubmit={handleSubmit}>
+      {inputs.map(input => (
+        <FormInput
+          key={input.id}
+          {...input}
+          value={values[input.name]}
+          onChange={handleChange}
+        />
+      ))}
       <label htmlFor="message">Message</label>
       <textarea id="message" name="message" rows="4" />
 
       <Button data-testid="message" type="submit" value="Send">
         Send
       </Button>
-    </StyledContactForm>
+    </StyledForm>
   );
 
   function handleSubmit(event) {
@@ -50,12 +77,17 @@ export default function ContactForm() {
       )
 
       .catch(err => console.log(err));
-    event.target.reset();
+    setValues({ restaurantname: '', address: '', email: '', telephone: '' });
+  }
+
+  function handleChange(event) {
+    setValues({ ...values, [event.target.name]: event.target.value });
   }
 }
-const StyledContactForm = styled.form`
+
+const StyledForm = styled.form`
+  padding: 0px 60px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 12px;
 `;

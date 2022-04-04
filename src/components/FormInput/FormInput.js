@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default function FormInput(props) {
   const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, id, ...inputProps } = props;
+  const { label, errorMessage, onChange, id, value, ...inputProps } = props;
 
   return (
     <>
@@ -13,6 +13,7 @@ export default function FormInput(props) {
         onChange={onChange}
         onBlur={handleFocus}
         focused={focused.toString()}
+        value={value}
       />
       <StyledSpan>{errorMessage}</StyledSpan>
     </>
@@ -25,9 +26,6 @@ export default function FormInput(props) {
 const StyledInput = styled.input`
   padding: 15px;
   margin: 10px 0px;
-  :invalid ~ span {
-    display: block;
-  }
 `;
 
 const StyledSpan = styled.span`

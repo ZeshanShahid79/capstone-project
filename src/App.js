@@ -3,7 +3,6 @@ import { restaurants } from './components/RestaurantCard/restaurants';
 import Button from './components/Button/Button';
 import ContactForm from './components/ContactForm/ContactForm';
 import styled from 'styled-components';
-import ContactForm2 from './components/ContactForm/ContactForm2';
 
 export default function App() {
   const randomRestaurant =
@@ -14,7 +13,7 @@ export default function App() {
         <RestaurantCard randomRestaurant={randomRestaurant} />
         <Button onClick={refreshPage}>Random</Button>
       </RandomRestaurantPage>
-      <ContactForm2 />
+
       <ContactForm />
     </>
   );
