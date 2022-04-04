@@ -41,7 +41,6 @@ export default function ContactForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const success = '';
     emailjs
       .sendForm(
         'service_hgexx04',
@@ -49,9 +48,6 @@ export default function ContactForm() {
         event.target,
         'SHU7y_FFmZng3tHx3'
       )
-      .then(() => {
-        return success;
-      })
 
       .catch(err => console.log(err));
     event.target.reset();
