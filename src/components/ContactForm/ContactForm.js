@@ -29,7 +29,7 @@ export default function ContactForm2() {
       errorMessage: 'Address should include Street and Number',
       label: 'Address',
       required: true,
-      pattern: /[^A-Za-z\- . [0-9]$]/g,
+      //  pattern: /[^A-Za-z\- . [0-9]$]/g,
     },
     {
       id: 3,
@@ -38,8 +38,8 @@ export default function ContactForm2() {
       errorMessage: 'It should be a valid email address',
       label: 'E-Mail',
       required: true,
-      pattern:
-        /^[a-zA-Z0-9][-.+!#$%&'*/=?^`{|]{0,1}([a-zA-Z0-9][-.+!#$%&'*/=?^`{|]{0,1})[a-zA-Z0-9]@[a-zA-Z0-9][-.]{0,1}([a-zA-Z][-.]{0,1})[a-zA-Z0-9].[a-zA-Z0-9]{1,}([.-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i,
+      // pattern:
+      //   /^[a-zA-Z0-9][-.+!#$%&'*/=?^`{|]{0,1}([a-zA-Z0-9][-.+!#$%&'*/=?^`{|]{0,1})[a-zA-Z0-9]@[a-zA-Z0-9][-.]{0,1}([a-zA-Z][-.]{0,1})[a-zA-Z0-9].[a-zA-Z0-9]{1,}([.-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i,
     },
     {
       id: 4,
