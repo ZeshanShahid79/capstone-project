@@ -1,6 +1,12 @@
 import styled from 'styled-components';
+import Button from '../../Button/Button';
+import { restaurants } from '../../../restaurants';
+import { Link } from 'react-router-dom';
 
-export default function RestaurantCard({ randomRestaurant }) {
+export default function RestaurantCard() {
+  const randomRestaurant =
+    restaurants[Math.floor(Math.random() * restaurants.length)];
+
   return (
     <SytledRestaurantCard>
       <h2>{randomRestaurant.restaurant}</h2>
@@ -8,10 +14,16 @@ export default function RestaurantCard({ randomRestaurant }) {
       <StyledDescription>Description:</StyledDescription>
       <p>{randomRestaurant.description}</p>
       <a href={randomRestaurant.url}>Link</a>
+      <Button onClick={refreshPage}>Random</Button>
+      <Link to="/">
+        <p>Go Back</p>
+      </Link>
     </SytledRestaurantCard>
   );
 }
-
+function refreshPage() {
+  window.location.reload(false);
+}
 const SytledRestaurantCard = styled.article`
   display: flex;
   flex-direction: column;

@@ -1,27 +1,20 @@
-import RestaurantCard from './components/RestaurantCard/RestaurantCard';
-import { restaurants } from './components/RestaurantCard/restaurants';
-import Button from './components/Button/Button';
-import ContactForm from './components/ContactForm/ContactForm';
-import styled from 'styled-components';
+import RestaurantCard from './components/Pages/RestaurantCard/RestaurantCard';
+import ContactForm from './components/Pages/ContactForm/ContactForm';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Pages/Home';
 
-export default function App() {
-  const randomRestaurant =
-    restaurants[Math.floor(Math.random() * restaurants.length)];
+export default function App({ randomRestaurant }) {
   return (
-    <RandomRestaurantPage>
-      <RestaurantCard randomRestaurant={randomRestaurant} />
-      <Button onClick={refreshPage}>Random</Button>
-      <ContactForm />
-    </RandomRestaurantPage>
+    <main>
+      <h1>Restaurant Randomizer</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/RestaurantCard"
+          element={<RestaurantCard randomRestaurant={randomRestaurant} />}
+        />
+        <Route path="/ContactForm" element={<ContactForm />} />
+      </Routes>
+    </main>
   );
-  function refreshPage() {
-    window.location.reload(false);
-  }
 }
-
-const RandomRestaurantPage = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;

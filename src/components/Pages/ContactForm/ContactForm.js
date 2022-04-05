@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import Button from '../Button/Button';
-import FormInput from '../FormInput/FormInput';
+import Button from '../../Button/Button';
+import FormInput from '../../FormInput/FormInput';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
+import { Link } from 'react-router-dom';
 
 const inputs = [
   {
@@ -68,6 +69,9 @@ export default function ContactForm() {
       <Button type="submit" value="Send">
         Send
       </Button>
+      <Link to="/">
+        <p>Go Back</p>
+      </Link>
     </StyledForm>
   );
 
