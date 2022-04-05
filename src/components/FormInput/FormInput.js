@@ -1,27 +1,29 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 export default function FormInput(props) {
-  const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, id, pattern, value, ...inputProps } =
-    props;
+  const {
+    label,
+    name,
+    errorMessage,
+    onChange,
+    id,
+    pattern,
+    value,
+    ...inputProps
+  } = props;
 
   return (
-    <section aria-labelledby="inputlabel">
-      <label id="inputlabel">{label}</label>
+    <>
+      <label htmlFor={name}>{label}</label>
       <StyledInput
+        id={name}
         {...inputProps}
         onChange={onChange}
-        onBlur={handleFocus}
-        focused={focused.toString()}
         value={value}
       />
       {value.match(pattern) && <StyledError>{errorMessage}</StyledError>}
-    </section>
+    </>
   );
-  function handleFocus() {
-    setFocused(true);
-  }
 }
 
 const StyledInput = styled.input`

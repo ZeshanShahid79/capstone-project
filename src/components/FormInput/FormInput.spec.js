@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import FormInput from './FormInput';
 
 describe('FormInput', () => {
-  it('renders a label and input with Name of input and a span with a conditional errormesasage', () => {
+  it('renders a label and input with Name of input and a span with a conditional error mesasage', () => {
     const handleChange = jest.fn();
     render(
       <FormInput
