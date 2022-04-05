@@ -7,8 +7,8 @@ export default function FormInput(props) {
     props;
 
   return (
-    <>
-      <label>{label}</label>
+    <section aria-labelledby="inputlabel">
+      <label id="inputlabel">{label}</label>
       <StyledInput
         {...inputProps}
         onChange={onChange}
@@ -16,8 +16,8 @@ export default function FormInput(props) {
         focused={focused.toString()}
         value={value}
       />
-      {value.match(pattern) && <StyledSpan>{errorMessage}</StyledSpan>}
-    </>
+      {value.match(pattern) && <StyledError>{errorMessage}</StyledError>}
+    </section>
   );
   function handleFocus() {
     setFocused(true);
@@ -29,7 +29,7 @@ const StyledInput = styled.input`
   margin: 10px 0px;
 `;
 
-const StyledSpan = styled.span`
+const StyledError = styled.p`
   font-size: 12px;
   padding: 3px;
   color: red;
