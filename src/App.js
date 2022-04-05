@@ -24,5 +24,4 @@ const RandomRestaurantPage = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0px 60px;
 `;

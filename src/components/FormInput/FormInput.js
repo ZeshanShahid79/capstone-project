@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default function FormInput(props) {
   const {
     label,
-    name,
+
     errorMessage,
     onChange,
     id,
@@ -13,10 +13,10 @@ export default function FormInput(props) {
   } = props;
 
   return (
-    <section aria-labelledby={name}>
-      <label htmlFor={name}>{label}</label>
+    <section>
+      <label htmlFor={label}>{label}</label>
       <StyledInput
-        id={name}
+        id={label}
         {...inputProps}
         onChange={onChange}
         value={value}
@@ -27,6 +27,7 @@ export default function FormInput(props) {
 }
 
 const StyledInput = styled.input`
+  display: flex;
   padding: 15px;
   margin: 10px 0px;
 `;

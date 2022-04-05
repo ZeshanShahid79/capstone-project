@@ -41,7 +41,7 @@ describe('FormInput', () => {
       />
     );
 
-    const section = screen.getByRole('region', { name: 'restaurantname' });
+    const section = screen.getByRole('textbox', { name: 'restaurantname' });
 
     expect(section).toBeInTheDocument();
   });

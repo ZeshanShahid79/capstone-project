@@ -101,5 +101,6 @@ export default function ContactForm() {
 const StyledForm = styled.form`
   border-radius: 10px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
 `;
