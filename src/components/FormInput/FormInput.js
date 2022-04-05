@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export default function FormInput(props) {
   const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, id, value, ...inputProps } = props;
+  const { label, errorMessage, onChange, id, pattern, value, ...inputProps } =
+    props;
 
   return (
     <>
@@ -15,7 +16,7 @@ export default function FormInput(props) {
         focused={focused.toString()}
         value={value}
       />
-      <StyledSpan>{errorMessage}</StyledSpan>
+      {value.match(pattern) && <StyledSpan>{errorMessage}</StyledSpan>}
     </>
   );
   function handleFocus() {
@@ -32,5 +33,5 @@ const StyledSpan = styled.span`
   font-size: 12px;
   padding: 3px;
   color: red;
-  display: none;
+  display: block;
 `;

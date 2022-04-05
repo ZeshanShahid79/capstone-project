@@ -11,6 +11,7 @@ export default function ContactForm2() {
     email: '',
     telephone: '',
   });
+
   const inputs = [
     {
       id: 1,
@@ -19,6 +20,7 @@ export default function ContactForm2() {
       errorMessage: 'Should not include any special characters',
       label: 'Restaurantname',
       required: true,
+      pattern: /[^A-Za-z0-9\- .]/g,
     },
     {
       id: 2,
@@ -27,7 +29,7 @@ export default function ContactForm2() {
       errorMessage: 'Address should include Street and Number',
       label: 'Address',
       required: true,
-      // pattern: '^[A-za-z0–9]',
+      pattern: /[^A-Za-z\- . [0-9]$]/g,
     },
     {
       id: 3,
@@ -36,6 +38,8 @@ export default function ContactForm2() {
       errorMessage: 'It should be a valid email address',
       label: 'E-Mail',
       required: true,
+      pattern:
+        /^[a-zA-Z0-9][-.+!#$%&'*/=?^`{|]{0,1}([a-zA-Z0-9][-.+!#$%&'*/=?^`{|]{0,1})[a-zA-Z0-9]@[a-zA-Z0-9][-.]{0,1}([a-zA-Z][-.]{0,1})[a-zA-Z0-9].[a-zA-Z0-9]{1,}([.-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i,
     },
     {
       id: 4,
@@ -44,7 +48,7 @@ export default function ContactForm2() {
       errorMessage: 'Telephonenumber should include only Numbers',
       label: 'Telephone',
       required: true,
-      //  pattern: '[^0-9]',
+      pattern: /[^0-9]/g,
     },
   ];
   return (
@@ -60,7 +64,7 @@ export default function ContactForm2() {
       <label htmlFor="message">Message</label>
       <textarea id="message" name="message" rows="4" />
 
-      <Button data-testid="message" type="submit" value="Send">
+      <Button type="submit" value="Send">
         Send
       </Button>
     </StyledForm>
@@ -77,7 +81,15 @@ export default function ContactForm2() {
       )
 
       .catch(err => console.log(err));
-    setValues({ restaurantname: '', address: '', email: '', telephone: '' });
+    setValues({
+      restaurantname: '',
+      address: '',
+      email: '',
+      telephone: '',
+    });
+    event.target.reset();
+
+    alert('Your Mail was sent successfully!');
   }
 
   function handleChange(event) {
