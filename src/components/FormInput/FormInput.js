@@ -13,7 +13,7 @@ export default function FormInput(props) {
   } = props;
 
   return (
-    <>
+    <section>
       <label htmlFor={name}>{label}</label>
       <StyledInput
         id={name}
@@ -22,7 +22,7 @@ export default function FormInput(props) {
         value={value}
       />
       {value.match(pattern) && <StyledError>{errorMessage}</StyledError>}
-    </>
+    </section>
   );
 }
 
