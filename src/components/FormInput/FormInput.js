@@ -13,7 +13,7 @@ export default function FormInput(props) {
   } = props;
 
   return (
-    <section>
+    <section aria-labelledby={name}>
       <label htmlFor={name}>{label}</label>
       <StyledInput
         id={name}
