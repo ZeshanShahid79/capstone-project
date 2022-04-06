@@ -11,4 +11,5 @@ const Template = args => <FormInput {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   label: 'Restaurantname',
+  value: 'Maze Maze',
 };
