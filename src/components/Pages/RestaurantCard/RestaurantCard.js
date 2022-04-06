@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Button from '../../Button/Button';
 import { restaurants } from '../../../restaurants';
 import { Link } from 'react-router-dom';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 
 export default function RestaurantCard() {
   const randomRestaurant =
@@ -16,7 +17,7 @@ export default function RestaurantCard() {
       <a href={randomRestaurant.url}>Link</a>
       <Button onClick={refreshPage}>Random</Button>
       <Link to="/">
-        <p>Go Back</p>
+        <AiOutlineArrowLeft />
       </Link>
     </SytledRestaurantCard>
   );

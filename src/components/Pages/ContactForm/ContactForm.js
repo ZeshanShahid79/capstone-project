@@ -4,6 +4,7 @@ import FormInput from '../../FormInput/FormInput';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
 import { Link } from 'react-router-dom';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 
 const inputs = [
   {
@@ -70,7 +71,7 @@ export default function ContactForm() {
         Send
       </Button>
       <Link to="/">
-        <p>Go Back</p>
+        <AiOutlineArrowLeft />
       </Link>
     </StyledForm>
   );

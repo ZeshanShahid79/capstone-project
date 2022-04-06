@@ -2,11 +2,12 @@ import RestaurantCard from './components/Pages/RestaurantCard/RestaurantCard';
 import ContactForm from './components/Pages/ContactForm/ContactForm';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Pages/Home';
+import styled from 'styled-components';
 
 export default function App({ randomRestaurant }) {
   return (
     <main>
-      <h1>Restaurant Randomizer</h1>
+      <Header>Restaurant Randomizer</Header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -18,3 +19,6 @@ export default function App({ randomRestaurant }) {
     </main>
   );
 }
+const Header = styled.h1`
+  background-color: blue;
+`;
