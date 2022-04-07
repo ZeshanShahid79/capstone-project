@@ -10,11 +10,17 @@ export default function RestaurantCard() {
 
   return (
     <SytledRestaurantCard>
-      <h2>{randomRestaurant.restaurant}</h2>
+      <h3>{randomRestaurant.restaurant}</h3>
       <p>{randomRestaurant.address}</p>
-      <StyledDescription>Description:</StyledDescription>
+      <h4>Description:</h4>
       <p>{randomRestaurant.description}</p>
       <a href={randomRestaurant.url}>Link</a>
+      {randomRestaurant.categories.map((category, index) => (
+        <div>
+          <StyledListItem key={category.index}>{category}</StyledListItem>
+        </div>
+      ))}
+
       <Button onClick={refreshPage}>Random</Button>
       <Link to="/">
         <AiOutlineArrowLeft />
@@ -30,9 +36,24 @@ const SytledRestaurantCard = styled.article`
   flex-direction: column;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  padding: 10px;
   margin: 20px;
+  padding: 10px;
+  h4 {
+    margin-bottom: -10px;
+    margin-top: -5px;
+  }
+
+  div {
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+  }
 `;
-const StyledDescription = styled.h3`
-  font-weight: bold;
+
+const StyledListItem = styled.li`
+  list-style: none;
+  font-size: smaller;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 2px;
 `;
