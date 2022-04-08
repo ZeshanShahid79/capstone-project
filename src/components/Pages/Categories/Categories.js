@@ -60,8 +60,7 @@ export default function Categories() {
       </ul>
     </main>
   );
-  // beim clicken soll der namem in einem state gespeichert werden
-  // dann restaraunt.categories.filter(category => category === currentCategrory),map.....
+
   function handleSetCurrentCategory(category) {
     setCurrentCategory(category);
   }
