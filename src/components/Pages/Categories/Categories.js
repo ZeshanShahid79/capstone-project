@@ -4,14 +4,12 @@ import Button from '../../Button/Button';
 
 export default function Categories() {
   const [currentCategory, setCurrentCategory] = useState('');
-  console.log(currentCategory);
+
   const filteredRestaurants = currentCategory
-    ? restaurants?.filter(
-        restaurant =>
-          restaurant.categories.map(category => category) === currentCategory
+    ? restaurants?.filter(restaurant =>
+        restaurant.categories.includes(currentCategory)
       )
     : restaurants;
-  console.log(filteredRestaurants);
 
   return (
     <main>
@@ -45,7 +43,7 @@ export default function Categories() {
         <Button onClick={() => handleSetCurrentCategory('Vegan')}>Vegan</Button>
       </ul>
       <ul>
-        {restaurants.map((restaurant, index) => (
+        {filteredRestaurants.map((restaurant, index) => (
           <li key={index}>
             <h2>{restaurant.restaurant}</h2>
             <p> {restaurant.address}</p>
