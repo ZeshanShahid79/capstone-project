@@ -15,12 +15,11 @@ export default function RestaurantCard() {
       <h4>Description:</h4>
       <p>{randomRestaurant.description}</p>
       <a href={randomRestaurant.url}>Link</a>
-      {randomRestaurant.categories.map((category, index) => (
-        <div>
-          <StyledListItem key={category.index}>{category}</StyledListItem>
-        </div>
-      ))}
-
+      <ul>
+        {randomRestaurant.categories.map((category, index) => (
+          <StyledListItem key={index}>{category}</StyledListItem>
+        ))}
+      </ul>
       <Button onClick={refreshPage}>Random</Button>
       <Link to="/">
         <AiOutlineArrowLeft />
@@ -43,7 +42,7 @@ const SytledRestaurantCard = styled.article`
     margin-top: -5px;
   }
 
-  div {
+  ul {
     background-color: yellow;
     display: flex;
     flex-direction: row;

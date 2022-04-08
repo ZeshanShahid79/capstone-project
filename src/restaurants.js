@@ -765,6 +765,7 @@ export const restaurants = [
     description:
       'In den komplett renovierten Räumen des Schulauer Fährhauses direkt vor den Toren Hamburgs sorgt Küchenchef Franz Jost für frischen Wind aus seiner offenen Showküche heraus. Im Fine Dining Restaurant gibt es zwei exklusive Menüs zur Wahl die jeweils fein aufeinander abgestimmt sind. Bei bestem Blick auf die Elbe und die vorbeifahrenden Schiffe können die Gäste auch aus der umfangreichen Karte auswählen. Aus der Backstube sorgt Konditormeister Wieland Funk täglich für frische, hausgebacken Kuchen und Torten. Und die Begrüßungskapitäne begrüßen schon seit 1952 von 10 Uhr bis Sonnenuntergang die dicken Pötte auf der Elbe und versorgen die Gäste mit vielfältigen Information über das Schiff, das soeben begrüßt oder verabschiedet wurde. àœber 17.000 Karteikarten und der tägliche Hafenbericht sind ihre Hauptinformationsquellen.',
     url: 'https://www.schulauer-faehrhaus.de/',
+    categories: ['Fine Dining'],
   },
   {
     restaurant: 'Sgroi',
@@ -851,6 +852,7 @@ export const restaurants = [
     description:
       'In dem urigen Lokal, untergebracht in einem historischen Fachwerkgebäude gleich gegenüber der Hamburger Speicherstadt, lässt man es sich bei herzhaften Speisen, erlesenen Weine oder auch ein Glas Bier gut gehen. Das ideale Lokal auch für für Familien- und Betriebsfeiern.',
     url: 'https://www.restaurant-schoppenhauer.de/eng-menu',
+    categories: ['Soul Food', 'German'],
   },
   {
     restaurant: 'Williamine',

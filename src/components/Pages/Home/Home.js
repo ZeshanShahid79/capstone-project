@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 import styled from 'styled-components';
 
 export default function Home() {
@@ -10,6 +10,9 @@ export default function Home() {
       </Link>
       <Link to="/ContactForm">
         <Button>Contact Us</Button>
+      </Link>
+      <Link to="/Categories">
+        <Button>Categories</Button>
       </Link>
     </HomePage>
   );
