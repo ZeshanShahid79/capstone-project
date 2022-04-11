@@ -24,7 +24,7 @@ export default function RestaurantCard() {
         <Button onClick={refreshPage}>Random</Button>
       </SytledRestaurantCard>
       <Link to="/">
-        <AiOutlineArrowLeft />
+        <AiOutlineArrowLeft size={30} color="white" />
       </Link>
     </main>
   );

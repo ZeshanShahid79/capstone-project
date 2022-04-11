@@ -63,7 +63,7 @@ export default function Categories() {
         ))}
       </RestaurantList>
       <Link to="/">
-        <AiOutlineArrowLeft />
+        <AiOutlineArrowLeft size={30} color="white" />
       </Link>
     </main>
   );
