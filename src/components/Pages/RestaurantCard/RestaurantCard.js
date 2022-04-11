@@ -9,22 +9,24 @@ export default function RestaurantCard() {
     restaurants[Math.floor(Math.random() * restaurants.length)];
 
   return (
-    <SytledRestaurantCard>
-      <h3>{randomRestaurant.restaurant}</h3>
-      <p>{randomRestaurant.address}</p>
-      <h4>Description:</h4>
-      <p>{randomRestaurant.description}</p>
-      <a href={randomRestaurant.url}>Link</a>
-      <ul>
-        {randomRestaurant.categories.map((category, index) => (
-          <StyledListItem key={index}>{category}</StyledListItem>
-        ))}
-      </ul>
-      <Button onClick={refreshPage}>Random</Button>
+    <main>
+      <SytledRestaurantCard>
+        <h2>{randomRestaurant.restaurant}</h2>
+        <p>{randomRestaurant.address}</p>
+        <h4>Description:</h4>
+        <article>{randomRestaurant.description}</article>
+        <a href={randomRestaurant.url}>Link</a>
+        <ul>
+          {randomRestaurant.categories.map((category, index) => (
+            <StyledListItem key={index}>{category}</StyledListItem>
+          ))}
+        </ul>
+        <Button onClick={refreshPage}>Random</Button>
+      </SytledRestaurantCard>
       <Link to="/">
         <AiOutlineArrowLeft />
       </Link>
-    </SytledRestaurantCard>
+    </main>
   );
 }
 function refreshPage() {
@@ -37,15 +39,27 @@ const SytledRestaurantCard = styled.article`
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   margin: 20px;
   padding: 10px;
-  h4 {
-    margin-bottom: -10px;
-    margin-top: -5px;
-  }
+  border: solid 12px;
+
+  border-image: linear-gradient(
+    180deg,
+    #fcd263 0%,
+    rgba(194, 131, 23, 0.92549) 9.9%,
+    rgba(240, 179, 40, 0.956863) 18.23%,
+    #ffc72b 34.9%,
+    #fddd81 53.65%,
+    rgba(240, 182, 40, 0.956863) 72.92%,
+    #fddd81 93.75%
+  );
+  border-image-slice: 1;
 
   ul {
-    background-color: yellow;
     display: flex;
     flex-direction: row;
+    padding-left: 0;
+  }
+  a {
+    color: white;
   }
 `;
 

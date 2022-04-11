@@ -19,9 +19,10 @@ export default function Home() {
 }
 
 const HomePage = styled.main`
+  background-color: black;
+  color: white;
   display: flex;
   flex-direction: column;
-  background-color: gray;
   justify-content: center;
   align-items: center;
   gap: 20px;

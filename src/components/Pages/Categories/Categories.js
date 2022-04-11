@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { restaurants } from '../../../restaurants';
 import Button from '../../Button/Button';
+import { Link } from 'react-router-dom';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import styled from '@emotion/styled';
 
 export default function Categories() {
   const [currentCategory, setCurrentCategory] = useState('');
@@ -42,22 +45,26 @@ export default function Categories() {
         </Button>
         <Button onClick={() => handleSetCurrentCategory('Vegan')}>Vegan</Button>
       </ul>
-      <ul>
+      <RestaurantList>
         {filteredRestaurants.map((restaurant, index) => (
-          <li key={index}>
+          <RestaurantCard key={index}>
             <h2>{restaurant.restaurant}</h2>
             <p> {restaurant.address}</p>
+            <h4>Description:</h4>
             <article>{restaurant.description}</article>
             <a href={restaurant.url}>Link</a>
 
             <ul>
               {restaurant.categories.map((category, index) => (
-                <li key={index}>{category}</li>
+                <CatgegoriesTags key={index}>{category}</CatgegoriesTags>
               ))}
             </ul>
-          </li>
+          </RestaurantCard>
         ))}
-      </ul>
+      </RestaurantList>
+      <Link to="/">
+        <AiOutlineArrowLeft />
+      </Link>
     </main>
   );
 
@@ -65,3 +72,40 @@ export default function Categories() {
     setCurrentCategory(category);
   }
 }
+
+const RestaurantList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+`;
+const RestaurantCard = styled.li`
+  border: solid 12px;
+
+  border-image: linear-gradient(
+    180deg,
+    #fcd263 0%,
+    rgba(194, 131, 23, 0.92549) 9.9%,
+    rgba(240, 179, 40, 0.956863) 18.23%,
+    #ffc72b 34.9%,
+    #fddd81 53.65%,
+    rgba(240, 182, 40, 0.956863) 72.92%,
+    #fddd81 93.75%
+  );
+  border-image-slice: 1;
+
+  list-style: none;
+  padding: 20px;
+
+  a {
+    color: white;
+  }
+`;
+
+const CatgegoriesTags = styled.li`
+  list-style: none;
+  font-size: smaller;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 2px;
+`;
