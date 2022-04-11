@@ -15,57 +15,68 @@ export default function Categories() {
     : restaurants;
 
   return (
-    <main>
-      <ul>
-        <Button onClick={() => handleSetCurrentCategory('Pizza')}>Pizza</Button>
-        <Button onClick={() => handleSetCurrentCategory('Mediterranean')}>
-          Mediterranean
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Asian')}>Asian</Button>
-        <Button onClick={() => handleSetCurrentCategory('Fine Dining')}>
-          Fine Dining
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Fish')}>Fish</Button>
-        <Button onClick={() => handleSetCurrentCategory('Vegetarian')}>
-          Vegetarian
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Indian')}>
-          Indian
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Burger')}>
-          Burger
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Cafe')}>Cafe</Button>
-        <Button onClick={() => handleSetCurrentCategory('Breakfast')}>
-          Breakfast
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Sushi')}>Sushi</Button>
-        <Button onClick={() => handleSetCurrentCategory('German')}>
-          German
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Vegan')}>Vegan</Button>
-      </ul>
-      <RestaurantList>
-        {filteredRestaurants.map((restaurant, index) => (
-          <RestaurantCard key={index}>
-            <h2>{restaurant.restaurant}</h2>
-            <p> {restaurant.address}</p>
-            <h4>Description:</h4>
-            <article>{restaurant.description}</article>
-            <a href={restaurant.url}>Link</a>
+    <>
+      <main>
+        <ButtonSlideBar>
+          <Button onClick={() => handleSetCurrentCategory('Pizza')}>
+            Pizza
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Mediterranean')}>
+            Mediterranean
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Asian')}>
+            Asian
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Fine Dining')}>
+            Fine Dining
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Fish')}>Fish</Button>
+          <Button onClick={() => handleSetCurrentCategory('Vegetarian')}>
+            Vegetarian
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Indian')}>
+            Indian
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Burger')}>
+            Burger
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Cafe')}>Cafe</Button>
+          <Button onClick={() => handleSetCurrentCategory('Breakfast')}>
+            Breakfast
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Sushi')}>
+            Sushi
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('German')}>
+            German
+          </Button>
+          <Button onClick={() => handleSetCurrentCategory('Vegan')}>
+            Vegan
+          </Button>
+        </ButtonSlideBar>
 
-            <ul>
-              {restaurant.categories.map((category, index) => (
-                <CatgegoriesTags key={index}>{category}</CatgegoriesTags>
-              ))}
-            </ul>
-          </RestaurantCard>
-        ))}
-      </RestaurantList>
-      <Link to="/">
-        <AiOutlineArrowLeft size={30} color="white" />
-      </Link>
-    </main>
+        <RestaurantList>
+          {filteredRestaurants.map((restaurant, index) => (
+            <RestaurantCard key={index}>
+              <h2>{restaurant.restaurant}</h2>
+              <p> {restaurant.address}</p>
+              <h4>Description:</h4>
+              <article>{restaurant.description}</article>
+              <a href={restaurant.url}>Link</a>
+
+              <CatehoryTagList>
+                {restaurant.categories.map((category, index) => (
+                  <CatgegoryTags key={index}>{category}</CatgegoryTags>
+                ))}
+              </CatehoryTagList>
+            </RestaurantCard>
+          ))}
+        </RestaurantList>
+        <Link to="/">
+          <AiOutlineArrowLeft size={30} color="white" />
+        </Link>
+      </main>
+    </>
   );
 
   function handleSetCurrentCategory(category) {
@@ -102,10 +113,36 @@ const RestaurantCard = styled.li`
   }
 `;
 
-const CatgegoriesTags = styled.li`
+const CatehoryTagList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: 1fr;
+  padding: 0;
+  margin: 10px;
+  gap: 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: auto;
+  height: auto;
+`;
+
+const CatgegoryTags = styled.li`
   list-style: none;
+  justify-self: start;
   font-size: smaller;
   border: solid 1px;
   border-radius: 5px;
-  padding: 2px;
+  padding: 5px;
+  white-space: nowrap;
+`;
+
+const ButtonSlideBar = styled.ul`
+  display: grid;
+  margin: 0;
+  padding: 20px;
+  grid-template-columns: repeat(13, auto);
+  grid-template-rows: 1fr;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
 `;
