@@ -10,5 +10,5 @@ const Template = args => <ContactForm {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  restaurantname: 'Zeshan',
+  restaurantName: 'Zeshan',
 };
