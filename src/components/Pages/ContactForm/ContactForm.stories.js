@@ -9,4 +9,6 @@ export default {
 const Template = args => <ContactForm {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  restaurantname: 'Zeshan',
+};

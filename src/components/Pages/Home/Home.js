@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 import styled from 'styled-components';
 
 export default function Home() {
@@ -11,14 +11,18 @@ export default function Home() {
       <Link to="/ContactForm">
         <Button>Contact Us</Button>
       </Link>
+      <Link to="/Categories">
+        <Button>Categories</Button>
+      </Link>
     </HomePage>
   );
 }
 
 const HomePage = styled.main`
+  background-color: black;
+  color: white;
   display: flex;
   flex-direction: column;
-  background-color: gray;
   justify-content: center;
   align-items: center;
   gap: 20px;
