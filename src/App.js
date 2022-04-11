@@ -1,9 +1,9 @@
-import RestaurantCard from './components/Pages/RestaurantCard/RestaurantCard';
-import ContactForm from './components/Pages/ContactForm/ContactForm';
+import RestaurantCard from './Pages/RestaurantCard/RestaurantCard';
+import ContactForm from './Pages/ContactForm/ContactForm';
 import { Routes, Route } from 'react-router-dom';
-import Home from './components/Pages/Home/Home';
+import Home from './Pages/Home/Home';
 import styled from 'styled-components';
-import Categories from './components/Pages/Categories/Categories';
+import Categories from './Pages/Categories/Categories';
 
 export default function App({ randomRestaurant }) {
   return (

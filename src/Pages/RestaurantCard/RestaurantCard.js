@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Button from '../../Button/Button';
-import { restaurants } from '../../../restaurants';
+import Button from '../../components/Button/Button';
+import { restaurants } from '../../restaurants';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 

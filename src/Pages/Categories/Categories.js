@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { restaurants } from '../../../restaurants';
-import Button from '../../Button/Button';
+import { restaurants } from '../../restaurants';
+import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import styled from '@emotion/styled';
