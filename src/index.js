@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.js';
-import reportWebVitals from './reportWebVitals.js';
-import GlobalStyles from './GlobalStyles.js';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import GlobalStyles from './GlobalStyles';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(

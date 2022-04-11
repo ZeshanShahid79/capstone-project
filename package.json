@@ -1,6 +1,5 @@
 {
   "name": "capstone-project",
-  "type": "module",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
