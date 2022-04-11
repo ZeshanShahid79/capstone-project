@@ -13,15 +13,10 @@ body{
     font-size:112.5% ;
     background-color: black;
     color: white;
+    width: 100vw;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
- 
-}
+
 
 input, label, textarea{
     font-size: 1em;

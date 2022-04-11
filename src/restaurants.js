@@ -844,7 +844,7 @@ export const restaurants = [
     description:
       'Gemütliches Restaurant mit panasiatischer Küche wie Sushi und Reisgerichten.',
     url: 'https://www.tyo-tyo.de/',
-    categories: ['Asian', 'Suhsi', 'Fine Dining'],
+    categories: ['Asian', 'Sushi', 'Fine Dining'],
   },
   {
     restaurant: 'Weinrestaurant Schoppenhauer',
