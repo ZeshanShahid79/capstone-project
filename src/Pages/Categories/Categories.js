@@ -14,6 +14,7 @@ export default function Categories({ entries }) {
         restaurant.categories.includes(currentCategory)
       )
     : entries;
+  console.log(currentCategory);
 
   return (
     <>
@@ -57,19 +58,19 @@ export default function Categories({ entries }) {
         </ButtonSlideBar>
 
         <RestaurantList>
-          {filteredRestaurants.map((restaurant, index) => (
-            <RestaurantCard key={index}>
+          {filteredRestaurants.map(restaurant => (
+            <RestaurantCard key={restaurant._id}>
               <h2>{restaurant.restaurant}</h2>
               <p> {restaurant.address}</p>
               <h4>Description:</h4>
               <article>{restaurant.description}</article>
               <a href={restaurant.url}>Link</a>
 
-              <CatehoryTagList>
+              <CategoryTagList>
                 {restaurant.categories.map((category, index) => (
                   <CatgegoryTags key={index}>{category}</CatgegoryTags>
                 ))}
-              </CatehoryTagList>
+              </CategoryTagList>
             </RestaurantCard>
           ))}
         </RestaurantList>
@@ -114,7 +115,7 @@ const RestaurantCard = styled.li`
   }
 `;
 
-const CatehoryTagList = styled.ul`
+const CategoryTagList = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-template-rows: 1fr;
