@@ -80,10 +80,10 @@ export default function ContactForm() {
     event.preventDefault();
     emailjs
       .sendForm(
-        process.env.SERVICE_ID,
-        process.env.EMAIL_TEMPLATE,
+        'service_hgexx04',
+        'template_db85ugq',
         event.target,
-        process.env.PUBLICKEY
+        'SHU7y_FFmZng3tHx3'
       )
 
       .catch(err => console.log(err));
