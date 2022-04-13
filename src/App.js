@@ -5,7 +5,7 @@ import Home from './Pages/Home/Home';
 import styled from 'styled-components';
 import Categories from './Pages/Categories/Categories';
 import useSWR from 'swr';
-import { PushSpinner } from 'react-spinners-kit';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
@@ -15,7 +15,7 @@ export default function App({ randomRestaurant }) {
     fetcher
   );
   if (entriesError) return <h1>Sorry, could not fetch</h1>;
-  if (!entries) return <PushSpinner size={30} color="#daa520" />;
+  if (!entries) return <LoadingSpinner />;
 
   return (
     <Homepage>
