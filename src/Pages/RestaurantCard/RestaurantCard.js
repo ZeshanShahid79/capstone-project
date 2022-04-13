@@ -1,15 +1,13 @@
 import styled from 'styled-components';
-import Button from '../../Button/Button';
-import { restaurants } from '../../../restaurants';
+import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 
-export default function RestaurantCard() {
-  const randomRestaurant =
-    restaurants[Math.floor(Math.random() * restaurants.length)];
+export default function RestaurantCard({ entries }) {
+  const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
 
   return (
-    <main>
+    <RandomPage>
       <SytledRestaurantCard>
         <h2>{randomRestaurant.restaurant}</h2>
         <p>{randomRestaurant.address}</p>
@@ -21,17 +19,25 @@ export default function RestaurantCard() {
             <StyledListItem key={index}>{category}</StyledListItem>
           ))}
         </ul>
-        <Button onClick={refreshPage}>Random</Button>
       </SytledRestaurantCard>
+      <Button onClick={refreshPage}>Random</Button>
       <Link to="/">
-        <AiOutlineArrowLeft size={30} color="white" />
+        <AiOutlineArrowLeft size={60} color="white" />
       </Link>
-    </main>
+    </RandomPage>
   );
 }
 function refreshPage() {
   window.location.reload(false);
 }
+
+const RandomPage = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
 const SytledRestaurantCard = styled.article`
   display: flex;
   flex-direction: column;

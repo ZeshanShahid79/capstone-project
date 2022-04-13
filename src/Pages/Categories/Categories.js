@@ -1,18 +1,17 @@
 import { useState } from 'react';
-import { restaurants } from '../../../restaurants';
-import Button from '../../Button/Button';
+import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
-export default function Categories() {
+export default function Categories({ entries }) {
   const [currentCategory, setCurrentCategory] = useState('');
 
   const filteredRestaurants = currentCategory
-    ? restaurants?.filter(restaurant =>
+    ? entries?.filter(restaurant =>
         restaurant.categories.includes(currentCategory)
       )
-    : restaurants;
+    : entries;
 
   return (
     <>
@@ -56,19 +55,19 @@ export default function Categories() {
         </ButtonSlideBar>
 
         <RestaurantList>
-          {filteredRestaurants.map((restaurant, index) => (
-            <RestaurantCard key={index}>
+          {filteredRestaurants.map(restaurant => (
+            <RestaurantCard key={restaurant._id}>
               <h2>{restaurant.restaurant}</h2>
               <p> {restaurant.address}</p>
               <h4>Description:</h4>
               <article>{restaurant.description}</article>
               <a href={restaurant.url}>Link</a>
 
-              <CatehoryTagList>
+              <CategoryTagList>
                 {restaurant.categories.map((category, index) => (
                   <CatgegoryTags key={index}>{category}</CatgegoryTags>
                 ))}
-              </CatehoryTagList>
+              </CategoryTagList>
             </RestaurantCard>
           ))}
         </RestaurantList>
@@ -113,7 +112,7 @@ const RestaurantCard = styled.li`
   }
 `;
 
-const CatehoryTagList = styled.ul`
+const CategoryTagList = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-template-rows: 1fr;

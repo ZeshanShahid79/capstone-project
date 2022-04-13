@@ -1,11 +1,22 @@
-import RestaurantCard from './components/Pages/RestaurantCard/RestaurantCard';
-import ContactForm from './components/Pages/ContactForm/ContactForm';
+import RestaurantCard from './Pages/RestaurantCard/RestaurantCard';
+import ContactForm from './Pages/ContactForm/ContactForm';
 import { Routes, Route } from 'react-router-dom';
-import Home from './components/Pages/Home/Home';
+import Home from './Pages/Home/Home';
 import styled from 'styled-components';
-import Categories from './components/Pages/Categories/Categories';
+import Categories from './Pages/Categories/Categories';
+import useSWR from 'swr';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
+
+const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function App({ randomRestaurant }) {
+  const { data: entries, error: entriesError } = useSWR(
+    '/api/entries',
+    fetcher
+  );
+  if (entriesError) return <h1>Sorry, could not fetch</h1>;
+  if (!entries) return <LoadingSpinner />;
+
   return (
     <Homepage>
       <Header>Restaurant Randomizer</Header>
@@ -13,17 +24,34 @@ export default function App({ randomRestaurant }) {
         <Route path="/" element={<Home />} />
         <Route
           path="/RestaurantCard"
-          element={<RestaurantCard randomRestaurant={randomRestaurant} />}
+          element={
+            <RestaurantCard
+              entries={entries}
+              randomRestaurant={randomRestaurant}
+            />
+          }
         />
         <Route path="/ContactForm" element={<ContactForm />} />
-        <Route path="/Categories" element={<Categories />} />
+        <Route path="/Categories" element={<Categories entries={entries} />} />
       </Routes>
     </Homepage>
   );
 }
 const Header = styled.h1`
-  background-color: rgb(225, 161, 7);
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    #fcd263 0%,
+    rgba(194, 131, 23, 0.92549) 9.9%,
+    rgba(240, 179, 40, 0.956863) 18.23%,
+    #ffc72b 34.9%,
+    #fddd81 53.65%,
+    rgba(240, 182, 40, 0.956863) 72.92%,
+    #fddd81 93.75%
+  );
 `;
+
 const Homepage = styled.main`
   background-color: black;
   color: white;

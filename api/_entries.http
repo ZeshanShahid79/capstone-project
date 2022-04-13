@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:3000/api
+
+
+
+
+### GET
+GET {{baseUrl}}/entries
+
+
+
+
+### POST /entries
+POST {{baseUrl}}/entries
+Content-Type: application/json
+
+{
+    "restaurant": "Al Volo ",
+    "address": "Eppendorfer Weg 211, 20253 Hamburg",
+    "description": "Authentisch italienische Küche mit hervorragender Pizza und typisch süditalienischen Snacks. Dolce Vita im Eppendorfer Weg.",
+    "url": "https://www.alvolo.de/",
+    "categories": ["Mediterranean", "Fine Dining"]
+}
+
+### DELETE /entries
+DELETE {{baseUrl}}/entries
+Content-Type: application/json
+
+{
+"_id": "62559c6a73721d1717b0ca7b"
+}
