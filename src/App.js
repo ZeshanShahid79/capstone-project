@@ -38,8 +38,20 @@ export default function App({ randomRestaurant }) {
   );
 }
 const Header = styled.h1`
-  background-color: rgb(225, 161, 7);
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    #fcd263 0%,
+    rgba(194, 131, 23, 0.92549) 9.9%,
+    rgba(240, 179, 40, 0.956863) 18.23%,
+    #ffc72b 34.9%,
+    #fddd81 53.65%,
+    rgba(240, 182, 40, 0.956863) 72.92%,
+    #fddd81 93.75%
+  );
 `;
+
 const Homepage = styled.main`
   background-color: black;
   color: white;
