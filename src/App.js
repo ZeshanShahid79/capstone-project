@@ -4,8 +4,18 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import styled from 'styled-components';
 import Categories from './Pages/Categories/Categories';
+import useSWR from 'swr';
+
+const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function App({ randomRestaurant }) {
+  const { data: entries, error: entriesError } = useSWR(
+    '/api/entries',
+    fetcher
+  );
+  if (entriesError) return <h1>Sorry, could not fetch</h1>;
+  if (!entries) return <em>... loading ...</em>;
+
   return (
     <Homepage>
       <Header>Restaurant Randomizer</Header>
@@ -13,10 +23,15 @@ export default function App({ randomRestaurant }) {
         <Route path="/" element={<Home />} />
         <Route
           path="/RestaurantCard"
-          element={<RestaurantCard randomRestaurant={randomRestaurant} />}
+          element={
+            <RestaurantCard
+              entries={entries}
+              randomRestaurant={randomRestaurant}
+            />
+          }
         />
         <Route path="/ContactForm" element={<ContactForm />} />
-        <Route path="/Categories" element={<Categories />} />
+        <Route path="/Categories" element={<Categories entries={entries} />} />
       </Routes>
     </Homepage>
   );

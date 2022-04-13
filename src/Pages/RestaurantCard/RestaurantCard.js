@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import Button from '../../components/Button/Button';
-import { restaurants } from '../../restaurants';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 
-export default function RestaurantCard() {
-  const randomRestaurant =
-    restaurants[Math.floor(Math.random() * restaurants.length)];
+export default function RestaurantCard({ entries }) {
+  const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
 
   return (
     <main>

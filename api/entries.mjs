@@ -1,13 +1,8 @@
 import dbConnect from '../lib/dbConnect.mjs';
 import Entry from '../models/Entry.mjs';
-import { restaurants } from './data.mjs';
 
 await dbConnect();
 console.log('connected to DB');
-
-// Entry.insertMany(restaurants)
-//   .then(res => console.log(res))
-//   .catch(err => console.log(err));
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {

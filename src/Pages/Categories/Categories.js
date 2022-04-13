@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import { restaurants } from '../../restaurants';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
-export default function Categories() {
+export default function Categories({ entries }) {
   const [currentCategory, setCurrentCategory] = useState('');
 
+  console.log(entries);
+
   const filteredRestaurants = currentCategory
-    ? restaurants?.filter(restaurant =>
+    ? entries?.filter(restaurant =>
         restaurant.categories.includes(currentCategory)
       )
-    : restaurants;
+    : entries;
 
   return (
     <>

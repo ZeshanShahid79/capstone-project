@@ -14,11 +14,11 @@ POST {{baseUrl}}/entries
 Content-Type: application/json
 
 {
-    "restaurant": "Cornelia Poletto",
-    "address": "Eppendorfer Landstraße 80, 20249 Hamburg",
-    "description": "Cornelia Polettos Gourmet-Küche im italienischen Gastronomia-Stil: Legeres Restaurant und exquisiter Feinkostladen in einem.",
-    "url": "https://cornelia-poletto.de/",
-    "categories": "Mediterranean", "Fine Dining"
+    "restaurant": "Al Volo ",
+    "address": "Eppendorfer Weg 211, 20253 Hamburg",
+    "description": "Authentisch italienische Küche mit hervorragender Pizza und typisch süditalienischen Snacks. Dolce Vita im Eppendorfer Weg.",
+    "url": "https://www.alvolo.de/",
+    "categories": ["Mediterranean", "Fine Dining"]
 }
 
 ### DELETE /entries
@@ -26,5 +26,5 @@ DELETE {{baseUrl}}/entries
 Content-Type: application/json
 
 {
-"_id": "62559164bae29ca748de69cf"
+"_id": "62559c6a73721d1717b0ca7b"
 }
