@@ -7,14 +7,11 @@ import styled from 'styled-components';
 export default function Categories({ entries }) {
   const [currentCategory, setCurrentCategory] = useState('');
 
-  console.log(entries);
-
   const filteredRestaurants = currentCategory
     ? entries?.filter(restaurant =>
         restaurant.categories.includes(currentCategory)
       )
     : entries;
-  console.log(currentCategory);
 
   return (
     <>
