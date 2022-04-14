@@ -8,9 +8,11 @@ export default function Home() {
       <Link to="/RestaurantCard">
         <Button>Random</Button>
       </Link>
+
       <Link to="/ContactForm">
         <Button>Contact Us</Button>
       </Link>
+
       <Link to="/Categories">
         <Button>Categories</Button>
       </Link>

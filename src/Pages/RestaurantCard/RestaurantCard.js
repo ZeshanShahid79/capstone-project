@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+import Map from '../../components/Map/Map';
 
 export default function RestaurantCard({ entries }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
@@ -24,6 +25,7 @@ export default function RestaurantCard({ entries }) {
       <Link to="/">
         <AiOutlineArrowLeft size={60} color="white" />
       </Link>
+      <Map />
     </RandomPage>
   );
 }
