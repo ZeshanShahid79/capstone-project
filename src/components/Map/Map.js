@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
 const markerIcon = new L.Icon({
-  iconUrl: './marker-icon-2x.png',
+  iconUrl: './src/components/Map/marker-icon-2x.png',
   iconSize: [35, 45],
 });
 
