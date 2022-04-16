@@ -4,11 +4,14 @@ import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import useGeoLocation from './useGeolocation';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import mapboxgl from 'mapbox-gl';
 
 const markerIcon = new L.Icon({
   iconUrl: require('./marker-icon-2x.png'),
-  iconSize: [20, 25],
-  iconAnchor: [17, 46],
+  iconSize: [25, 25],
+  iconAnchor: [10, 25],
   popupAnchor: [0, -46],
 });
 
@@ -17,6 +20,8 @@ export default function BasicMap() {
   const ZOOM_LEVEL = 11;
   const mapRef = useRef();
   const position = [53.551086, 9.993682];
+  const location = useGeoLocation();
+  mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
 
   return (
     <>
@@ -26,6 +31,12 @@ export default function BasicMap() {
           attribution={osm.maptiler.attribution}
         />
         <Marker position={position} icon={markerIcon}></Marker>
+        {location.loaded && !location.error && (
+          <Marker
+            icon={markerIcon}
+            position={[location.coordinates.lat, location.coordinates.lng]}
+          ></Marker>
+        )}
       </StyledMap>
     </>
   );
