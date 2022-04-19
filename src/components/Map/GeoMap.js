@@ -15,9 +15,15 @@ import { Link } from 'react-router-dom';
 
 export default function GeoMap({ address }) {
   mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
+
   const markerIcon = new L.Icon({
     iconUrl: require('./marker-icon-2x.png'),
     iconSize: [22, 32],
+    iconAnchor: [16, 32],
+  });
+  const destinationMarker = new L.Icon({
+    iconUrl: require('./final.png'),
+    iconSize: [32, 32],
     iconAnchor: [16, 32],
   });
   const location = useGeoLocation();
@@ -35,8 +41,7 @@ export default function GeoMap({ address }) {
       accessToken: mapboxgl.accessToken,
       types: 'country, region, place, poi, address',
       limit: 5,
-      placeholder: 'e.g. Sievekingdamm 7',
-      minLength: 2,
+      placeholder: 'paste here and choose ↓ ',
     });
     geocoderDestination.on('result', e => {
       return setDestinationMapbox([
@@ -57,7 +62,7 @@ export default function GeoMap({ address }) {
           url={osm.maptiler.url}
           attribution={osm.maptiler.attribution}
         />
-        <Marker position={position} icon={markerIcon} />
+        <Marker position={position} icon={destinationMarker} />
 
         {location.loaded && !location.error && (
           <Marker
@@ -103,11 +108,12 @@ const SearchWrapper = styled.form`
   color: white;
   display: flex;
   z-index: 400;
+  gap: 10px;
 `;
 
 const SearchButton = styled.button`
   margin-top: 10px;
-
+  background-color: green;
   border-radius: 14px;
 `;
 
@@ -116,6 +122,8 @@ const GeoCoderDestination = styled.div`
   display: ${props => (props.display === 'none' ? 'none' : '')};
   height: 28px;
   background-color: white;
+  font-size: small;
+  width: 240px;
 `;
 
 const LinkBack = styled(Link)`

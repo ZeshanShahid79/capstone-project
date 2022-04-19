@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { MdOutlineContentCopy } from 'react-icons/md';
 import CopyButton from '../../components/Button/CopyButton';
 //import Map from '../../components/Map/Map';
 //import CurrentLocation from '../../components/Map/CurrentPosition';

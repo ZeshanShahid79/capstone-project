@@ -65,11 +65,11 @@ export default function ContactForm() {
         />
       ))}
       <label htmlFor="message">Message</label>
-      <textarea id="message" name="message" rows="4" />
+      <MessageInput id="message" name="message" rows="4" />
 
-      <Button type="submit" value="Send">
+      <SubmitButton type="submit" value="Send">
         Send
-      </Button>
+      </SubmitButton>
       <Link to="/">
         <AiOutlineArrowLeft size={30} color="white" />
       </Link>
@@ -80,10 +80,10 @@ export default function ContactForm() {
     event.preventDefault();
     emailjs
       .sendForm(
-        'service_hgexx04',
-        'template_db85ugq',
+        process.env.REACT_APP_EMAIL_API,
+        process.env.REACT_APP_EMAIL_TEMPLATE,
         event.target,
-        'SHU7y_FFmZng3tHx3'
+        process.env.REACT_APP_EMAIL_KEY
       )
 
       .catch(err => console.log(err));
@@ -107,5 +107,13 @@ const StyledForm = styled.form`
   border-radius: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+`;
+
+const SubmitButton = styled(Button)`
+  margin-top: 12px;
+`;
+const MessageInput = styled.textarea`
+  width: 221.5px;
 `;
