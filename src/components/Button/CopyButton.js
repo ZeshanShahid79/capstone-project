@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
-
-const CopyButtonProps = {
-  copyText: 'string',
-};
+import { RiFileCopyLine, RiFileCopyFill } from 'react-icons/ri';
 
 export default function CopyButton(copyText) {
   const [isCopied, setIsCopied] = useState(false);
@@ -18,7 +15,7 @@ export default function CopyButton(copyText) {
   }
 
   const handleCopyClick = () => {
-    copyTextToClipboard(copyText)
+    copyTextToClipboard(copyText.copytext)
       .then(() => {
         setIsCopied(true);
         setTimeout(() => {
@@ -28,19 +25,18 @@ export default function CopyButton(copyText) {
       .catch(err => {
         console.log(err);
       });
+    console.log(copyText.copytext);
   };
 
   return (
     <>
       <CopyToClipboardButton onClick={handleCopyClick}>
-        <span>{isCopied ? 'Copy' : 'copied'}</span>
+        <span>{isCopied ? <RiFileCopyLine /> : <RiFileCopyFill />}</span>
       </CopyToClipboardButton>
     </>
   );
 }
 
 const CopyToClipboardButton = styled(Button)`
-  width: 50%;
-  padding: 1rem 0;
-  margin-top: 2rem;
+  width: 30px;
 `;

@@ -91,6 +91,8 @@ const RestaurantList = styled.ul`
 `;
 const RestaurantCard = styled.li`
   border: solid 12px;
+  /* background: url('https://images.unsplash.com/photo-1512003867696-6d5ce6835040?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGZvb2QlMjBhc2lhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+  background-repeat: no-repeat; */
 
   border-image: linear-gradient(
     180deg,

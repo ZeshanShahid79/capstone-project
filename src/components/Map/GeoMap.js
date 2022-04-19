@@ -17,7 +17,7 @@ export default function GeoMap({ address }) {
   mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
   const markerIcon = new L.Icon({
     iconUrl: require('./marker-icon-2x.png'),
-    iconSize: [32, 32],
+    iconSize: [22, 32],
     iconAnchor: [16, 32],
   });
   const location = useGeoLocation();
@@ -26,7 +26,7 @@ export default function GeoMap({ address }) {
     'destinationMapBox',
     [53.551086, 9.993682]
   );
-  const ZOOM_LEVEL = 11;
+  const ZOOM_LEVEL = 12.4;
   const mapRef = useRef();
   const center = { lat: destinationMapbox[0], lng: destinationMapbox[1] };
   const position = [destinationMapbox[0], destinationMapbox[1]];
@@ -71,20 +71,20 @@ export default function GeoMap({ address }) {
           id={'geocoderdestination'}
           onKeyDown={handleEnterClick}
         ></GeoCoderDestination>
-        <SearchButton type="submit">search</SearchButton>
+        <SearchButton type="submit">run Map</SearchButton>
       </SearchWrapper>
-      <LinkBack to="/" name="back">
+      <LinkBack to="/RestaurantCard">
         <ArrowBack />
       </LinkBack>
     </>
   );
-  //   function handleSetAddress(address) {
-  //     if (address !== '') {
-  //       return window.location.reload();
-  //     } else {
-  //       return;
-  //     }
+  // function handleSetAddress(address) {
+  //   if (address !== '') {
+  //     return window.location.reload();
+  //   } else {
+  //     return;
   //   }
+  // }
 
   function handleEnterClick(event) {
     let code = 0;
@@ -106,10 +106,8 @@ const SearchWrapper = styled.form`
 `;
 
 const SearchButton = styled.button`
-  height: 28px;
-  width: 55px;
   margin-top: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
+
   border-radius: 14px;
 `;
 
@@ -117,6 +115,7 @@ const GeoCoderDestination = styled.div`
   margin-top: 10px;
   display: ${props => (props.display === 'none' ? 'none' : '')};
   height: 28px;
+  background-color: white;
 `;
 
 const LinkBack = styled(Link)`
