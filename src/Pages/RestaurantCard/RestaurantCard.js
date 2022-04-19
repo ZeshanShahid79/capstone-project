@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 //import Map from '../../components/Map/Map';
 //import CurrentLocation from '../../components/Map/CurrentPosition';
-import GeoMap from '../../components/Map/GeoMap';
 
-export default function RestaurantCard({ entries }) {
+export default function RestaurantCard({ entries, setAddress }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
 
   return (
@@ -27,7 +26,10 @@ export default function RestaurantCard({ entries }) {
       <Link to="/">
         <AiOutlineArrowLeft size={60} color="white" />
       </Link>
-      <GeoMap />
+
+      <Link to="/GeoMap" onClick={() => setAddress(randomRestaurant.address)}>
+        Show on Map
+      </Link>
     </RandomPage>
   );
 }
