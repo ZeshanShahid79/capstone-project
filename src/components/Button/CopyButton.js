@@ -39,4 +39,7 @@ export default function CopyButton(copyText) {
 
 const CopyToClipboardButton = styled(Button)`
   width: 30px;
+  background: transparent;
+  color: gold;
+  border-color: goldenrod;
 `;
