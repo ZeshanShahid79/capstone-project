@@ -15,6 +15,7 @@ export default function CopyButton(copyText) {
   }
 
   const handleCopyClick = () => {
+    alert('copied!');
     copyTextToClipboard(copyText.copytext)
       .then(() => {
         setIsCopied(true);
@@ -31,7 +32,7 @@ export default function CopyButton(copyText) {
   return (
     <>
       <CopyToClipboardButton onClick={handleCopyClick}>
-        <span>{isCopied ? <RiFileCopyLine /> : <RiFileCopyFill />}</span>
+        <span>{isCopied ? <RiFileCopyFill /> : <RiFileCopyLine />}</span>
       </CopyToClipboardButton>
     </>
   );
