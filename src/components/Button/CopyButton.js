@@ -15,18 +15,17 @@ export default function CopyButton(copyText) {
   }
 
   const handleCopyClick = () => {
-    alert('copied!');
     copyTextToClipboard(copyText.copytext)
       .then(() => {
         setIsCopied(true);
         setTimeout(() => {
           setIsCopied(false);
-        }, 1500);
+        }, 6000);
+        alert('copied!');
       })
       .catch(err => {
         console.log(err);
       });
-    console.log(copyText.copytext);
   };
 
   return (
