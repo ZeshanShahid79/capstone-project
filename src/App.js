@@ -19,7 +19,7 @@ export default function App({ randomRestaurant }) {
   );
   if (entriesError) return <h1>Sorry, could not fetch</h1>;
   if (!entries) return <LoadingSpinner />;
-  console.log(address);
+
   return (
     <Homepage>
       <Header>
