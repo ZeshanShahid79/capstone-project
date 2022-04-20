@@ -1,7 +1,6 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import { IoMdArrowRoundBack as ArrowBack } from 'react-icons/io';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
 import { BiCategory } from 'react-icons/bi';
 import 'leaflet/dist/leaflet.css';
@@ -52,7 +51,7 @@ export default function GeoMap({ address }) {
         e.result,
       ]);
     });
-    // handleSetAddress(address);
+
     geocoderDestination.addTo('#geocoderdestination');
     // eslint-disable-next-line
   }, []);
@@ -88,13 +87,6 @@ export default function GeoMap({ address }) {
       </LinkCategories>
     </>
   );
-  // function handleSetAddress(address) {
-  //   if (address !== '') {
-  //     return window.location.reload();
-  //   } else {
-  //     return;
-  //   }
-  // }
 
   function handleEnterClick(event) {
     let code = 0;
