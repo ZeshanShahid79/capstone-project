@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import styled from 'styled-components';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
+import { BiCategory } from 'react-icons/bi';
+import { AiOutlineMail } from 'react-icons/ai';
 
 export default function Home() {
   return (
@@ -19,15 +21,22 @@ export default function Home() {
       <Link to="/RestaurantCard">
         <Button>
           <GiPerspectiveDiceSixFacesRandom size={20} />
+          Random
         </Button>
       </Link>
 
       <Link to="/ContactForm">
-        <Button>Contact Us</Button>
+        <Button>
+          <AiOutlineMail size={17} />
+          Contact Us
+        </Button>
       </Link>
 
       <Link to="/Categories">
-        <Button>Categories</Button>
+        <Button>
+          <BiCategory size={15} />
+          Categories
+        </Button>
       </Link>
     </HomePage>
   );

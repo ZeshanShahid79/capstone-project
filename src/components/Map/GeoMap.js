@@ -2,6 +2,8 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { useRef } from 'react';
 import styled from 'styled-components';
 import { IoMdArrowRoundBack as ArrowBack } from 'react-icons/io';
+import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
+import { BiCategory } from 'react-icons/bi';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import useGeoLocation from './useGeolocation';
@@ -78,9 +80,12 @@ export default function GeoMap({ address }) {
         ></GeoCoderDestination>
         <SearchButton type="submit">run Map</SearchButton>
       </SearchWrapper>
-      <LinkBack to="/RestaurantCard">
-        <ArrowBack />
-      </LinkBack>
+      <LinkRestaurantCard to="/RestaurantCard">
+        <GiPerspectiveDiceSixFacesRandom />
+      </LinkRestaurantCard>
+      <LinkCategories to="/Categories">
+        <BiCategory />
+      </LinkCategories>
     </>
   );
   // function handleSetAddress(address) {
@@ -113,7 +118,8 @@ const SearchWrapper = styled.form`
 
 const SearchButton = styled.button`
   margin-top: 10px;
-  background-color: green;
+  background-color: gold;
+  border: solid 1px goldenrod;
   border-radius: 14px;
 `;
 
@@ -126,10 +132,22 @@ const GeoCoderDestination = styled.div`
   width: 240px;
 `;
 
-const LinkBack = styled(Link)`
+const LinkRestaurantCard = styled(Link)`
   position: absolute;
   left: 12px;
   top: 80px;
+  height: 30px;
+  color: white;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 900;
+`;
+const LinkCategories = styled(Link)`
+  position: absolute;
+  left: 12px;
+  top: 130px;
   height: 30px;
   color: white;
   font-size: 1.8rem;

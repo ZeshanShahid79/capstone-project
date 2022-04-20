@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { GoGlobe } from 'react-icons/go';
 import CopyButton from '../../components/Button/CopyButton';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
 
@@ -19,7 +20,10 @@ export default function RestaurantCard({ entries, setAddress }) {
 
         <h4>Description:</h4>
         <article>{randomRestaurant.description}</article>
-        <a href={randomRestaurant.url}>Link</a>
+        <a href={randomRestaurant.url}>
+          <GoGlobe />
+          Link
+        </a>
         <ul>
           {randomRestaurant.categories.map((category, index) => (
             <StyledListItem key={index}>{category}</StyledListItem>
@@ -76,16 +80,23 @@ const SytledRestaurantCard = styled.article`
     display: flex;
     flex-direction: row;
     padding-left: 0;
+    gap: 12px;
   }
   a {
-    color: white;
+    color: gold;
+    text-decoration: none;
+  }
+  article {
+    margin-bottom: 12px;
   }
 `;
 
 const StyledListItem = styled.li`
   list-style: none;
   font-size: smaller;
-  border: solid 1px;
+  border: solid 1px goldenrod;
   border-radius: 5px;
   padding: 2px;
+  background: transparent;
+  color: gold;
 `;
