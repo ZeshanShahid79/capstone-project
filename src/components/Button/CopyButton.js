@@ -29,11 +29,9 @@ export default function CopyButton(copyText) {
   };
 
   return (
-    <>
-      <CopyToClipboardButton onClick={handleCopyClick}>
-        <span>{isCopied ? <RiFileCopyFill /> : <RiFileCopyLine />}</span>
-      </CopyToClipboardButton>
-    </>
+    <CopyToClipboardButton onClick={handleCopyClick}>
+      <span>{isCopied ? <RiFileCopyFill /> : <RiFileCopyLine />}</span>
+    </CopyToClipboardButton>
   );
 }
 

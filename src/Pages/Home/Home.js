@@ -1,9 +1,5 @@
-import { Link } from 'react-router-dom';
-import Button from '../../components/Button/Button';
 import styled from 'styled-components';
-import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
-import { BiCategory } from 'react-icons/bi';
-import { AiOutlineMail } from 'react-icons/ai';
+import Navigation from '../../components/Navigation/Navigation';
 
 export default function Home() {
   return (
@@ -18,26 +14,7 @@ export default function Home() {
         alt="two people discussing where to eat"
       />
 
-      <Link to="/RestaurantCard">
-        <Button>
-          <GiPerspectiveDiceSixFacesRandom size={20} />
-          Random
-        </Button>
-      </Link>
-
-      <Link to="/ContactForm">
-        <Button>
-          <AiOutlineMail size={17} />
-          Contact Us
-        </Button>
-      </Link>
-
-      <Link to="/Categories">
-        <Button>
-          <BiCategory size={15} />
-          Categories
-        </Button>
-      </Link>
+      <Navigation />
     </HomePage>
   );
 }

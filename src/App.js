@@ -1,6 +1,6 @@
 import RestaurantCard from './Pages/RestaurantCard/RestaurantCard';
 import ContactForm from './Pages/ContactForm/ContactForm';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import styled from 'styled-components';
 import Categories from './Pages/Categories/Categories';
@@ -22,10 +22,12 @@ export default function App({ randomRestaurant }) {
 
   return (
     <Homepage>
-      <Header>
-        <h1>W. D. W. E.</h1>
-        <p>"What Do We Eat"</p>
-      </Header>
+      <BackToHome to="/">
+        <Header>
+          <h1>W. D. W. E.</h1>
+          <p>"What Do We Eat"</p>
+        </Header>
+      </BackToHome>
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -72,4 +74,7 @@ const Header = styled.header`
 const Homepage = styled.main`
   background-color: black;
   color: white;
+`;
+const BackToHome = styled(Link)`
+  text-decoration: none;
 `;

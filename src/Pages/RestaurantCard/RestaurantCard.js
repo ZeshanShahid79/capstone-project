@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { GoGlobe } from 'react-icons/go';
 import CopyButton from '../../components/Button/CopyButton';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
+import Navigation from '../../components/Navigation/Navigation';
 
 export default function RestaurantCard({ entries, setAddress }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
@@ -34,13 +34,11 @@ export default function RestaurantCard({ entries, setAddress }) {
         <GiPerspectiveDiceSixFacesRandom size={30} />
       </Button>
       <Link to="/GeoMap" onClick={() => setAddress(randomRestaurant.address)}>
-        <Button onClick={() => window.confirm('copy address to enter in Map!')}>
+        {/* <Button onClick={() => window.confirm('copy address to enter in Map!')}>
           Show Map
-        </Button>
+        </Button> */}
       </Link>
-      <Link to="/">
-        <AiOutlineArrowLeft size={60} color="white" />
-      </Link>
+      <Navigation />
     </RandomPage>
   );
 }
