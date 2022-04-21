@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import Button from '../../components/Button/Button';
-import { Link } from 'react-router-dom';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { GoGlobe } from 'react-icons/go';
 import styled from 'styled-components';
 import CopyButton from '../../components/Button/CopyButton';
+import Navigation from '../../components/Navigation/Navigation';
 
 export default function Categories({ entries, setAddress }) {
   const [currentCategory, setCurrentCategory] = useState('');
@@ -16,85 +15,60 @@ export default function Categories({ entries, setAddress }) {
     : entries;
 
   return (
-    <>
-      <main>
-        <ButtonSlideBar>
-          <Button onClick={() => handleSetCurrentCategory('Pizza')}>
-            Pizza
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Mediterranean')}>
-            Mediterranean
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Asian')}>
-            Asian
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Fine Dining')}>
-            Fine Dining
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Fish')}>Fish</Button>
-          <Button onClick={() => handleSetCurrentCategory('Vegetarian')}>
-            Vegetarian
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Indian')}>
-            Indian
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Burger')}>
-            Burger
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Cafe')}>Cafe</Button>
-          <Button onClick={() => handleSetCurrentCategory('Breakfast')}>
-            Breakfast
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Sushi')}>
-            Sushi
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('German')}>
-            German
-          </Button>
-          <Button onClick={() => handleSetCurrentCategory('Vegan')}>
-            Vegan
-          </Button>
-        </ButtonSlideBar>
+    <main>
+      <ButtonSlideBar>
+        <Button onClick={() => handleSetCurrentCategory('Pizza')}>Pizza</Button>
+        <Button onClick={() => handleSetCurrentCategory('Mediterranean')}>
+          Mediterranean
+        </Button>
+        <Button onClick={() => handleSetCurrentCategory('Asian')}>Asian</Button>
+        <Button onClick={() => handleSetCurrentCategory('Fine Dining')}>
+          Fine Dining
+        </Button>
+        <Button onClick={() => handleSetCurrentCategory('Fish')}>Fish</Button>
+        <Button onClick={() => handleSetCurrentCategory('Vegetarian')}>
+          Vegetarian
+        </Button>
+        <Button onClick={() => handleSetCurrentCategory('Indian')}>
+          Indian
+        </Button>
+        <Button onClick={() => handleSetCurrentCategory('Burger')}>
+          Burger
+        </Button>
+        <Button onClick={() => handleSetCurrentCategory('Cafe')}>Cafe</Button>
+        <Button onClick={() => handleSetCurrentCategory('Breakfast')}>
+          Breakfast
+        </Button>
+        <Button onClick={() => handleSetCurrentCategory('Sushi')}>Sushi</Button>
+        <Button onClick={() => handleSetCurrentCategory('German')}>
+          German
+        </Button>
+        <Button onClick={() => handleSetCurrentCategory('Vegan')}>Vegan</Button>
+      </ButtonSlideBar>
 
-        <RestaurantList>
-          {filteredRestaurants.map(restaurant => (
-            <RestaurantCard key={restaurant._id}>
-              <h2>
-                {restaurant.restaurant}
-                <img
-                  src="https://source.unsplash.com/random/80x80/?food"
-                  alt="random food"
-                />{' '}
-              </h2>
-              <p> {restaurant.address}</p>
-              <CopyButton copytext={restaurant.address} />
-              <h4>Description:</h4>
-              <article>{restaurant.description}</article>
-              <a href={restaurant.url}>
-                <GoGlobe /> Link
-              </a>
-              <Link to="/GeoMap" onClick={() => setAddress(restaurant.address)}>
-                <Button
-                  onClick={() =>
-                    window.confirm('copy address to enter in Map!')
-                  }
-                >
-                  Show Map
-                </Button>
-              </Link>
-              <CategoryTagList>
-                {restaurant.categories.map((category, index) => (
-                  <CatgegoryTags key={index}>{category}</CatgegoryTags>
-                ))}
-              </CategoryTagList>
-            </RestaurantCard>
-          ))}
-        </RestaurantList>
-        <Link to="/">
-          <AiOutlineArrowLeft size={30} color="white" />
-        </Link>
-      </main>
-    </>
+      <RestaurantList>
+        {filteredRestaurants.map(restaurant => (
+          <RestaurantCard key={restaurant._id}>
+            <h2>{restaurant.restaurant}</h2>
+            <p> {restaurant.address}</p>
+            <CopyButton copytext={restaurant.address} />
+            <h4>Description:</h4>
+            <article>{restaurant.description}</article>
+            <a href={restaurant.url}>
+              <GoGlobe /> Link
+            </a>
+
+            <CategoryTagList>
+              {restaurant.categories.map((category, index) => (
+                <CatgegoryTags key={index}>{category}</CatgegoryTags>
+              ))}
+            </CategoryTagList>
+          </RestaurantCard>
+        ))}
+      </RestaurantList>
+
+      <Navigation />
+    </main>
   );
 
   function handleSetCurrentCategory(category) {
@@ -107,6 +81,7 @@ const RestaurantList = styled.ul`
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+  margin-bottom: 100px;
 `;
 const RestaurantCard = styled.li`
   border: solid 12px;

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import { RiFileCopyLine, RiFileCopyFill } from 'react-icons/ri';
+import { toast } from 'react-toastify';
 
 export default function CopyButton(copyText) {
   const [isCopied, setIsCopied] = useState(false);
@@ -21,19 +22,18 @@ export default function CopyButton(copyText) {
         setTimeout(() => {
           setIsCopied(false);
         }, 6000);
-        alert('copied!');
+        toast.success('copied!');
       })
       .catch(err => {
         console.log(err);
+        toast.error('Error');
       });
   };
 
   return (
-    <>
-      <CopyToClipboardButton onClick={handleCopyClick}>
-        <span>{isCopied ? <RiFileCopyFill /> : <RiFileCopyLine />}</span>
-      </CopyToClipboardButton>
-    </>
+    <CopyToClipboardButton onClick={handleCopyClick}>
+      <span>{isCopied ? <RiFileCopyFill /> : <RiFileCopyLine />}</span>
+    </CopyToClipboardButton>
   );
 }
 

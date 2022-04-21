@@ -1,47 +1,46 @@
 import styled from 'styled-components';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { GoGlobe } from 'react-icons/go';
 import CopyButton from '../../components/Button/CopyButton';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
+import Navigation from '../../components/Navigation/Navigation';
 
 export default function RestaurantCard({ entries, setAddress }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
 
   return (
-    <RandomPage>
-      <SytledRestaurantCard>
-        <h2>{randomRestaurant.restaurant}</h2>
-        <p id="text">
-          {randomRestaurant.address}{' '}
-          <CopyButton copytext={randomRestaurant.address} />
-        </p>
+    <>
+      <RandomPage>
+        <SytledRestaurantCard>
+          <h2>{randomRestaurant.restaurant}</h2>
+          <p id="text">
+            {randomRestaurant.address}{' '}
+            <CopyButton copytext={randomRestaurant.address} />
+          </p>
 
-        <h4>Description:</h4>
-        <article>{randomRestaurant.description}</article>
-        <a href={randomRestaurant.url}>
-          <GoGlobe />
-          Link
-        </a>
-        <ul>
-          {randomRestaurant.categories.map((category, index) => (
-            <StyledListItem key={index}>{category}</StyledListItem>
-          ))}
-        </ul>
-      </SytledRestaurantCard>
-      <Button onClick={refreshPage}>
-        <GiPerspectiveDiceSixFacesRandom size={30} />
-      </Button>
-      <Link to="/GeoMap" onClick={() => setAddress(randomRestaurant.address)}>
-        <Button onClick={() => window.confirm('copy address to enter in Map!')}>
-          Show Map
+          <h4>Description:</h4>
+          <article>{randomRestaurant.description}</article>
+          <a href={randomRestaurant.url}>
+            <GoGlobe />
+            Link
+          </a>
+          <ul>
+            {randomRestaurant.categories.map((category, index) => (
+              <StyledListItem key={index}>{category}</StyledListItem>
+            ))}
+          </ul>
+        </SytledRestaurantCard>
+        <Button onClick={refreshPage}>
+          <GiPerspectiveDiceSixFacesRandom size={30} />
         </Button>
-      </Link>
-      <Link to="/">
-        <AiOutlineArrowLeft size={60} color="white" />
-      </Link>
-    </RandomPage>
+        <Link
+          to="/GeoMap"
+          onClick={() => setAddress(randomRestaurant.address)}
+        ></Link>
+      </RandomPage>
+      <Navigation />
+    </>
   );
 }
 function refreshPage() {
@@ -53,6 +52,7 @@ const RandomPage = styled.main`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin-bottom: 100px;
 `;
 
 const SytledRestaurantCard = styled.article`

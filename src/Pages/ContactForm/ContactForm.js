@@ -3,8 +3,8 @@ import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
-import { Link } from 'react-router-dom';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
+import Navigation from '../../components/Navigation/Navigation';
+import { toast } from 'react-toastify';
 
 const inputs = [
   {
@@ -55,29 +55,29 @@ export default function ContactForm() {
   });
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <Bubble>
-        Are you not listed? No Problem just fill out the Form and we will
-        contact you
-      </Bubble>
-      {inputs.map(input => (
-        <FormInput
-          key={input.id}
-          {...input}
-          value={values[input.name]}
-          onChange={handleChange}
-        />
-      ))}
-      <label htmlFor="message">Message</label>
-      <MessageInput id="message" name="message" rows="4" />
+    <>
+      <StyledForm onSubmit={handleSubmit}>
+        <Bubble>
+          Are you not listed? No Problem just fill out the Form and we will
+          contact you
+        </Bubble>
+        {inputs.map(input => (
+          <FormInput
+            key={input.id}
+            {...input}
+            value={values[input.name]}
+            onChange={handleChange}
+          />
+        ))}
+        <label htmlFor="message">Message</label>
+        <MessageInput id="message" name="message" rows="4" />
 
-      <SubmitButton type="submit" value="Send">
-        Send
-      </SubmitButton>
-      <Link to="/">
-        <AiOutlineArrowLeft size={30} color="white" />
-      </Link>
-    </StyledForm>
+        <SubmitButton type="submit" value="Send">
+          Send
+        </SubmitButton>
+      </StyledForm>
+      <Navigation />
+    </>
   );
 
   function handleSubmit(event) {
@@ -99,7 +99,7 @@ export default function ContactForm() {
     });
     event.target.reset();
 
-    alert('Your Mail was sent successfully!');
+    toast.success('Your Mail was sent successfully!');
   }
 
   function handleChange(event) {
@@ -113,13 +113,14 @@ const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 100px;
 `;
 
 const SubmitButton = styled(Button)`
   margin-top: 12px;
 `;
 const MessageInput = styled.textarea`
-  width: 221.5px;
+  width: 285px;
 `;
 const Bubble = styled.div`
   position: relative;

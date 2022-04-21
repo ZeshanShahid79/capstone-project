@@ -1,9 +1,5 @@
-import { Link } from 'react-router-dom';
-import Button from '../../components/Button/Button';
 import styled from 'styled-components';
-import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
-import { BiCategory } from 'react-icons/bi';
-import { AiOutlineMail } from 'react-icons/ai';
+import Navigation from '../../components/Navigation/Navigation';
 
 export default function Home() {
   return (
@@ -18,26 +14,7 @@ export default function Home() {
         alt="two people discussing where to eat"
       />
 
-      <Link to="/RestaurantCard">
-        <Button>
-          <GiPerspectiveDiceSixFacesRandom size={20} />
-          Random
-        </Button>
-      </Link>
-
-      <Link to="/ContactForm">
-        <Button>
-          <AiOutlineMail size={17} />
-          Contact Us
-        </Button>
-      </Link>
-
-      <Link to="/Categories">
-        <Button>
-          <BiCategory size={15} />
-          Categories
-        </Button>
-      </Link>
+      <Navigation />
     </HomePage>
   );
 }
@@ -56,25 +33,33 @@ const Gif = styled.img`
   margin-top: 50px;
   margin-bottom: 100px;
   border: solid 1px goldenrod;
+  @media screen and (min-width: 700px) {
+    width: 600px;
+  }
 `;
 
 const Bubble = styled.div`
   position: relative;
   background: #000000;
-  color: gold;
+  color: white;
   font-family: Arial;
   font-size: 14px;
   line-height: 25px;
-  text-align: center;
+  text-align: start;
   width: 250px;
-  height: 120px;
+  height: 130px;
   border-radius: 10px;
-  padding: 3px;
+  padding: 6px;
+  padding-left: 12px;
   border: goldenrod solid 1px;
+  margin-bottom: 12px;
   p {
-    font-size: 16px;
-    margin-top: 4px;
-    margin-bottom: 5px;
+    color: gold;
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 12px;
+    padding-bottom: 24px;
   }
 
   :after {

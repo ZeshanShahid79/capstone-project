@@ -1,8 +1,6 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
-import { BiCategory } from 'react-icons/bi';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import useGeoLocation from './useGeolocation';
@@ -12,7 +10,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 import { useEffect } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
-import { Link } from 'react-router-dom';
+import Navigation from '../Navigation/Navigation';
 
 export default function GeoMap({ address }) {
   mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
@@ -33,7 +31,7 @@ export default function GeoMap({ address }) {
     'destinationMapBox',
     [53.551086, 9.993682]
   );
-  const ZOOM_LEVEL = 12.4;
+  const ZOOM_LEVEL = 11.2;
   const mapRef = useRef();
   const center = { lat: destinationMapbox[0], lng: destinationMapbox[1] };
   const position = [destinationMapbox[0], destinationMapbox[1]];
@@ -58,7 +56,7 @@ export default function GeoMap({ address }) {
 
   return (
     <>
-      <MapContainer center={center} zoom={ZOOM_LEVEL} ref={mapRef} id="map">
+      <MapBox center={center} zoom={ZOOM_LEVEL} ref={mapRef} id="map">
         <TileLayer
           url={osm.maptiler.url}
           attribution={osm.maptiler.attribution}
@@ -71,7 +69,7 @@ export default function GeoMap({ address }) {
             position={[location.coordinates.lat, location.coordinates.lng]}
           ></Marker>
         )}
-      </MapContainer>
+      </MapBox>
       <SearchWrapper>
         <GeoCoderDestination
           id={'geocoderdestination'}
@@ -79,12 +77,8 @@ export default function GeoMap({ address }) {
         ></GeoCoderDestination>
         <SearchButton type="submit">run Map</SearchButton>
       </SearchWrapper>
-      <LinkRestaurantCard to="/RestaurantCard">
-        <GiPerspectiveDiceSixFacesRandom />
-      </LinkRestaurantCard>
-      <LinkCategories to="/Categories">
-        <BiCategory />
-      </LinkCategories>
+
+      <Navigation />
     </>
   );
 
@@ -96,16 +90,24 @@ export default function GeoMap({ address }) {
     }
   }
 }
+const MapBox = styled(MapContainer)`
+  height: 617px;
+  @media screen and (min-width: 700px) {
+    height: 736px;
+  }
+`;
 
 const SearchWrapper = styled.form`
   position: absolute;
   top: 0;
   right: 0;
   max-width: 90vw;
+  max-height: 90vh;
   color: white;
   display: flex;
   z-index: 400;
   gap: 10px;
+  margin-bottom: 100px;
 `;
 
 const SearchButton = styled.button`
@@ -122,29 +124,4 @@ const GeoCoderDestination = styled.div`
   background-color: white;
   font-size: small;
   width: 240px;
-`;
-
-const LinkRestaurantCard = styled(Link)`
-  position: absolute;
-  left: 12px;
-  top: 80px;
-  height: 30px;
-  color: white;
-  font-size: 1.8rem;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 900;
-`;
-const LinkCategories = styled(Link)`
-  position: absolute;
-  left: 12px;
-  top: 130px;
-  height: 30px;
-  color: white;
-  font-size: 1.8rem;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 900;
 `;
