@@ -26,6 +26,7 @@ export default function CopyButton(copyText) {
       })
       .catch(err => {
         console.log(err);
+        toast.error('Error');
       });
   };
 
