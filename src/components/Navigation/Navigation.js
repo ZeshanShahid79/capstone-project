@@ -18,7 +18,7 @@ export default function Navigation() {
       </Link>
       <Link to="/ContactForm">
         <AiOutlineMail />
-        <span>Contact us</span>
+        <span>Contact</span>
       </Link>
       <Link to="/Categories">
         <BiCategory />
