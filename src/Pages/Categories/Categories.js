@@ -2,9 +2,11 @@ import { useState } from 'react';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { GoGlobe } from 'react-icons/go';
 import styled from 'styled-components';
+import CopyButton from '../../components/Button/CopyButton';
 
-export default function Categories({ entries }) {
+export default function Categories({ entries, setAddress }) {
   const [currentCategory, setCurrentCategory] = useState('');
 
   const filteredRestaurants = currentCategory
@@ -57,12 +59,29 @@ export default function Categories({ entries }) {
         <RestaurantList>
           {filteredRestaurants.map(restaurant => (
             <RestaurantCard key={restaurant._id}>
-              <h2>{restaurant.restaurant}</h2>
+              <h2>
+                {restaurant.restaurant}
+                <img
+                  src="https://source.unsplash.com/random/80x80/?food"
+                  alt="random food"
+                />{' '}
+              </h2>
               <p> {restaurant.address}</p>
+              <CopyButton copytext={restaurant.address} />
               <h4>Description:</h4>
               <article>{restaurant.description}</article>
-              <a href={restaurant.url}>Link</a>
-
+              <a href={restaurant.url}>
+                <GoGlobe /> Link
+              </a>
+              <Link to="/GeoMap" onClick={() => setAddress(restaurant.address)}>
+                <Button
+                  onClick={() =>
+                    window.confirm('copy address to enter in Map!')
+                  }
+                >
+                  Show Map
+                </Button>
+              </Link>
               <CategoryTagList>
                 {restaurant.categories.map((category, index) => (
                   <CatgegoryTags key={index}>{category}</CatgegoryTags>
@@ -91,7 +110,8 @@ const RestaurantList = styled.ul`
 `;
 const RestaurantCard = styled.li`
   border: solid 12px;
-
+  list-style: none;
+  padding: 20px;
   border-image: linear-gradient(
     180deg,
     #fcd263 0%,
@@ -104,11 +124,12 @@ const RestaurantCard = styled.li`
   );
   border-image-slice: 1;
 
-  list-style: none;
-  padding: 20px;
-
   a {
-    color: white;
+    text-decoration: none;
+    color: gold;
+  }
+  article {
+    margin-bottom: 12px;
   }
 `;
 
@@ -118,7 +139,7 @@ const CategoryTagList = styled.ul`
   grid-template-rows: 1fr;
   padding: 0;
   margin: 10px;
-  gap: 15px;
+  gap: 12px;
   overflow-x: auto;
   overflow-y: hidden;
   width: auto;
@@ -133,6 +154,9 @@ const CatgegoryTags = styled.li`
   border-radius: 5px;
   padding: 5px;
   white-space: nowrap;
+  background: transparent;
+  color: gold;
+  border-color: goldenrod;
 `;
 
 const ButtonSlideBar = styled.ul`

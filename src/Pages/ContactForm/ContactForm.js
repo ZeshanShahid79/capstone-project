@@ -56,6 +56,10 @@ export default function ContactForm() {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
+      <Bubble>
+        Are you not listed? No Problem just fill out the Form and we will
+        contact you
+      </Bubble>
       {inputs.map(input => (
         <FormInput
           key={input.id}
@@ -65,11 +69,11 @@ export default function ContactForm() {
         />
       ))}
       <label htmlFor="message">Message</label>
-      <textarea id="message" name="message" rows="4" />
+      <MessageInput id="message" name="message" rows="4" />
 
-      <Button type="submit" value="Send">
+      <SubmitButton type="submit" value="Send">
         Send
-      </Button>
+      </SubmitButton>
       <Link to="/">
         <AiOutlineArrowLeft size={30} color="white" />
       </Link>
@@ -80,10 +84,10 @@ export default function ContactForm() {
     event.preventDefault();
     emailjs
       .sendForm(
-        'service_hgexx04',
-        'template_db85ugq',
+        process.env.REACT_APP_EMAIL_API,
+        process.env.REACT_APP_EMAIL_TEMPLATE,
         event.target,
-        'SHU7y_FFmZng3tHx3'
+        process.env.REACT_APP_EMAIL_KEY
       )
 
       .catch(err => console.log(err));
@@ -107,5 +111,60 @@ const StyledForm = styled.form`
   border-radius: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+`;
+
+const SubmitButton = styled(Button)`
+  margin-top: 12px;
+`;
+const MessageInput = styled.textarea`
+  width: 221.5px;
+`;
+const Bubble = styled.div`
+  position: relative;
+  background: #000000;
+  color: gold;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 25px;
+  text-align: center;
+  width: 250px;
+  height: 60px;
+  border-radius: 10px;
+  padding: 3px;
+  border: goldenrod solid 1px;
+  margin-bottom: 40px;
+  p {
+    font-size: 16px;
+    margin-top: 4px;
+    margin-bottom: 5px;
+  }
+
+  :after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 29px 32px 0 0;
+    border-color: #000000 transparent transparent transparent;
+    bottom: -29px;
+    left: 23%;
+    margin-left: -16px;
+  }
+  :before {
+    content: '';
+    position: absolute;
+    width: 0;
+    z-index: 0;
+    border-style: solid;
+    border-width: 30px 33px 0 0;
+    border-color: goldenrod transparent transparent transparent;
+    bottom: -31px;
+    left: 23%;
+    margin-left: -17px;
+    display: block;
+  }
 `;
