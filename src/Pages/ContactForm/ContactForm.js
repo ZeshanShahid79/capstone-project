@@ -4,6 +4,7 @@ import FormInput from '../../components/FormInput/FormInput';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
 import Navigation from '../../components/Navigation/Navigation';
+import { toast } from 'react-toastify';
 
 const inputs = [
   {
@@ -98,7 +99,7 @@ export default function ContactForm() {
     });
     event.target.reset();
 
-    alert('Your Mail was sent successfully!');
+    toast.success('Your Mail was sent successfully!');
   }
 
   function handleChange(event) {

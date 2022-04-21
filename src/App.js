@@ -8,6 +8,8 @@ import useSWR from 'swr';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import GeoMap from './components/Map/GeoMap';
 import { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
@@ -17,7 +19,7 @@ export default function App({ randomRestaurant }) {
     '/api/entries',
     fetcher
   );
-  if (entriesError) return <h1>Sorry, could not fetch</h1>;
+  if (entriesError) return toast.error('Sorry, could not fetch');
   if (!entries) return <LoadingSpinner />;
 
   return (
@@ -45,6 +47,18 @@ export default function App({ randomRestaurant }) {
         <Route path="/Categories" element={<Categories entries={entries} />} />
         <Route path="/GeoMap" element={<GeoMap address={address} />}></Route>
       </Routes>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </Homepage>
   );
   function handleSetAddress(address) {
