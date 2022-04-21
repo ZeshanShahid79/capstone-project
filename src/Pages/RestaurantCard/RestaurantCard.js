@@ -62,7 +62,11 @@ const SytledRestaurantCard = styled.article`
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   margin: 20px;
   padding: 10px;
+  padding-left: 20px;
   border: solid 12px;
+  @media screen and (min-width: 700px) {
+    width: 800px;
+  }
 
   border-image: linear-gradient(
     180deg,

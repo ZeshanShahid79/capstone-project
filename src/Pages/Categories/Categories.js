@@ -79,14 +79,18 @@ export default function Categories({ entries, setAddress }) {
 const RestaurantList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   padding: 20px;
   margin-bottom: 100px;
+  align-items: center;
 `;
 const RestaurantCard = styled.li`
   border: solid 12px;
   list-style: none;
   padding: 20px;
+  @media screen and (min-width: 700px) {
+    width: 800px;
+  }
   border-image: linear-gradient(
     180deg,
     #fcd263 0%,
