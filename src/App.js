@@ -1,6 +1,6 @@
 import RestaurantCard from './Pages/RestaurantCard/RestaurantCard';
 import ContactForm from './Pages/ContactForm/ContactForm';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import styled from 'styled-components';
 import Categories from './Pages/Categories/Categories';
@@ -75,6 +75,6 @@ const Homepage = styled.main`
   background-color: black;
   color: white;
 `;
-const BackToHome = styled(Link)`
+const BackToHome = styled(NavLink)`
   text-decoration: none;
 `;

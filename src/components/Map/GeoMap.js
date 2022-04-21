@@ -31,7 +31,7 @@ export default function GeoMap({ address }) {
     'destinationMapBox',
     [53.551086, 9.993682]
   );
-  const ZOOM_LEVEL = 12.4;
+  const ZOOM_LEVEL = 11.2;
   const mapRef = useRef();
   const center = { lat: destinationMapbox[0], lng: destinationMapbox[1] };
   const position = [destinationMapbox[0], destinationMapbox[1]];

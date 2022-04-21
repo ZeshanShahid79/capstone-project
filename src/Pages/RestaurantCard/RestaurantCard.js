@@ -33,11 +33,10 @@ export default function RestaurantCard({ entries, setAddress }) {
       <Button onClick={refreshPage}>
         <GiPerspectiveDiceSixFacesRandom size={30} />
       </Button>
-      <Link to="/GeoMap" onClick={() => setAddress(randomRestaurant.address)}>
-        {/* <Button onClick={() => window.confirm('copy address to enter in Map!')}>
-          Show Map
-        </Button> */}
-      </Link>
+      <Link
+        to="/GeoMap"
+        onClick={() => setAddress(randomRestaurant.address)}
+      ></Link>
       <Navigation />
     </RandomPage>
   );

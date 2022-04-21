@@ -119,7 +119,7 @@ const SubmitButton = styled(Button)`
   margin-top: 12px;
 `;
 const MessageInput = styled.textarea`
-  width: 221.5px;
+  width: 285px;
 `;
 const Bubble = styled.div`
   position: relative;
