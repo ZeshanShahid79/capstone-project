@@ -92,6 +92,9 @@ export default function GeoMap({ address }) {
 }
 const MapBox = styled(MapContainer)`
   height: 617px;
+  @media screen and (min-width: 700px) {
+    height: 736px;
+  }
 `;
 
 const SearchWrapper = styled.form`

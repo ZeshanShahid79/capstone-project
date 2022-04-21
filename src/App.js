@@ -79,9 +79,15 @@ const Header = styled.header`
 
   h1 {
     margin: 0;
+    @media screen and (min-width: 700px) {
+      font-size: 60px;
+    }
   }
   p {
     margin: 0;
+    @media screen and (min-width: 700px) {
+      font-size: 20px;
+    }
   }
 `;
 

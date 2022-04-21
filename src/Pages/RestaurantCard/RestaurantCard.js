@@ -10,35 +10,37 @@ export default function RestaurantCard({ entries, setAddress }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
 
   return (
-    <RandomPage>
-      <SytledRestaurantCard>
-        <h2>{randomRestaurant.restaurant}</h2>
-        <p id="text">
-          {randomRestaurant.address}{' '}
-          <CopyButton copytext={randomRestaurant.address} />
-        </p>
+    <>
+      <RandomPage>
+        <SytledRestaurantCard>
+          <h2>{randomRestaurant.restaurant}</h2>
+          <p id="text">
+            {randomRestaurant.address}{' '}
+            <CopyButton copytext={randomRestaurant.address} />
+          </p>
 
-        <h4>Description:</h4>
-        <article>{randomRestaurant.description}</article>
-        <a href={randomRestaurant.url}>
-          <GoGlobe />
-          Link
-        </a>
-        <ul>
-          {randomRestaurant.categories.map((category, index) => (
-            <StyledListItem key={index}>{category}</StyledListItem>
-          ))}
-        </ul>
-      </SytledRestaurantCard>
-      <Button onClick={refreshPage}>
-        <GiPerspectiveDiceSixFacesRandom size={30} />
-      </Button>
-      <Link
-        to="/GeoMap"
-        onClick={() => setAddress(randomRestaurant.address)}
-      ></Link>
+          <h4>Description:</h4>
+          <article>{randomRestaurant.description}</article>
+          <a href={randomRestaurant.url}>
+            <GoGlobe />
+            Link
+          </a>
+          <ul>
+            {randomRestaurant.categories.map((category, index) => (
+              <StyledListItem key={index}>{category}</StyledListItem>
+            ))}
+          </ul>
+        </SytledRestaurantCard>
+        <Button onClick={refreshPage}>
+          <GiPerspectiveDiceSixFacesRandom size={30} />
+        </Button>
+        <Link
+          to="/GeoMap"
+          onClick={() => setAddress(randomRestaurant.address)}
+        ></Link>
+      </RandomPage>
       <Navigation />
-    </RandomPage>
+    </>
   );
 }
 function refreshPage() {
@@ -50,6 +52,7 @@ const RandomPage = styled.main`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin-bottom: 100px;
 `;
 
 const SytledRestaurantCard = styled.article`

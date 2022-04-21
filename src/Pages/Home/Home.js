@@ -33,25 +33,33 @@ const Gif = styled.img`
   margin-top: 50px;
   margin-bottom: 100px;
   border: solid 1px goldenrod;
+  @media screen and (min-width: 700px) {
+    width: 600px;
+  }
 `;
 
 const Bubble = styled.div`
   position: relative;
   background: #000000;
-  color: gold;
+  color: white;
   font-family: Arial;
   font-size: 14px;
   line-height: 25px;
-  text-align: center;
+  text-align: start;
   width: 250px;
-  height: 120px;
+  height: 130px;
   border-radius: 10px;
-  padding: 3px;
+  padding: 6px;
+  padding-left: 12px;
   border: goldenrod solid 1px;
+  margin-bottom: 12px;
   p {
-    font-size: 16px;
-    margin-top: 4px;
-    margin-bottom: 5px;
+    color: gold;
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 12px;
+    padding-bottom: 24px;
   }
 
   :after {
