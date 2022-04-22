@@ -43,7 +43,10 @@ export default function App({ randomRestaurant }) {
             />
           }
         />
-        <Route path="/ContactForm" element={<ContactForm />} />
+        <Route
+          path="/ContactForm"
+          element={<ContactForm autocomplete="off" />}
+        />
         <Route path="/Categories" element={<Categories entries={entries} />} />
         <Route path="/GeoMap" element={<GeoMap address={address} />}></Route>
       </Routes>
