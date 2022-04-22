@@ -12,7 +12,9 @@ export default function RestaurantCard({ entries, setAddress }) {
   const [newRestaurant, setNewRestaurant] = useState(randomRestaurant);
   function handleGetNewRestaurant() {
     setNewRestaurant(randomRestaurant);
+    console.log(newRestaurant);
   }
+
   return (
     <>
       <RandomPage>
