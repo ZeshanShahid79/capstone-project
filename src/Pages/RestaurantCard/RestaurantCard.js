@@ -10,7 +10,9 @@ import { useState } from 'react';
 export default function RestaurantCard({ entries, setAddress }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
   const [newRestaurant, setNewRestaurant] = useState(randomRestaurant);
-
+  function handleGetNewRestaurant() {
+    setNewRestaurant(randomRestaurant);
+  }
   return (
     <>
       <RandomPage>
@@ -43,9 +45,6 @@ export default function RestaurantCard({ entries, setAddress }) {
       <Navigation />
     </>
   );
-  function handleGetNewRestaurant() {
-    setNewRestaurant(randomRestaurant);
-  }
 }
 
 const RandomPage = styled.main`
