@@ -5,45 +5,47 @@ import { GoGlobe } from 'react-icons/go';
 import CopyButton from '../../components/Button/CopyButton';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
 import Navigation from '../../components/Navigation/Navigation';
+import { useState } from 'react';
 
 export default function RestaurantCard({ entries, setAddress }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
+  const [newRestaurant, setNewRestaurant] = useState(randomRestaurant);
 
   return (
     <>
       <RandomPage>
         <SytledRestaurantCard>
-          <h2>{randomRestaurant.restaurant}</h2>
+          <h2>{newRestaurant.restaurant}</h2>
           <p id="text">
-            {randomRestaurant.address}{' '}
-            <CopyButton copytext={randomRestaurant.address} />
+            {newRestaurant.address}{' '}
+            <CopyButton copytext={newRestaurant.address} />
           </p>
           <h4>Description:</h4>
-          <article>{randomRestaurant.description}</article>
-          <a href={randomRestaurant.url}>
+          <article>{newRestaurant.description}</article>
+          <a href={newRestaurant.url}>
             <GoGlobe />
             Book your table here
           </a>
           <ul>
-            {randomRestaurant.categories.map((category, index) => (
+            {newRestaurant.categories.map((category, index) => (
               <StyledListItem key={index}>{category}</StyledListItem>
             ))}
           </ul>
         </SytledRestaurantCard>
-        <Button onClick={refreshPage}>
+        <Button onClick={handleGetNewRestaurant}>
           <GiPerspectiveDiceSixFacesRandom size={30} />
         </Button>
         <Link
           to="/GeoMap"
-          onClick={() => setAddress(randomRestaurant.address)}
+          onClick={() => setAddress(newRestaurant.address)}
         ></Link>
       </RandomPage>
       <Navigation />
     </>
   );
-}
-function refreshPage() {
-  window.location.reload(false);
+  function handleGetNewRestaurant() {
+    setNewRestaurant(randomRestaurant);
+  }
 }
 
 const RandomPage = styled.main`
