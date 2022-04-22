@@ -10,6 +10,7 @@ import { useState } from 'react';
 export default function RestaurantCard({ entries, setAddress }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
   const [newRestaurant, setNewRestaurant] = useState(randomRestaurant);
+
   function handleGetNewRestaurant() {
     setNewRestaurant(randomRestaurant);
     console.log(newRestaurant);
@@ -36,7 +37,7 @@ export default function RestaurantCard({ entries, setAddress }) {
             ))}
           </ul>
         </SytledRestaurantCard>
-        <Button onClick={handleGetNewRestaurant}>
+        <Button onClick={() => handleGetNewRestaurant()}>
           <GiPerspectiveDiceSixFacesRandom size={30} />
         </Button>
         <Link
