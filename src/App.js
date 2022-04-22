@@ -69,7 +69,7 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid 1px goldenrod;
+  border: solid 2px goldenrod;
   font-family: 'Noto Serif Display', 'serif';
   font-weight: lighter;
   color: gold;
@@ -85,6 +85,7 @@ const Header = styled.header`
   }
   p {
     margin: 0;
+
     @media screen and (min-width: 700px) {
       font-size: 20px;
     }

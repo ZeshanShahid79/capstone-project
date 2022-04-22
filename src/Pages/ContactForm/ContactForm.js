@@ -56,7 +56,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} autoComplete="off">
         <Bubble>
           Are you not listed? No Problem just fill out the Form and we will
           contact you

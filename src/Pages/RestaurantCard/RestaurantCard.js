@@ -18,12 +18,11 @@ export default function RestaurantCard({ entries, setAddress }) {
             {randomRestaurant.address}{' '}
             <CopyButton copytext={randomRestaurant.address} />
           </p>
-
           <h4>Description:</h4>
           <article>{randomRestaurant.description}</article>
           <a href={randomRestaurant.url}>
             <GoGlobe />
-            Link
+            Book your table here
           </a>
           <ul>
             {randomRestaurant.categories.map((category, index) => (
@@ -67,6 +66,9 @@ const SytledRestaurantCard = styled.article`
   @media screen and (min-width: 700px) {
     width: 800px;
   }
+  @media screen and (min-width: 375px) {
+    width: 320px;
+  }
 
   border-image: linear-gradient(
     180deg,
@@ -88,10 +90,18 @@ const SytledRestaurantCard = styled.article`
   }
   a {
     color: gold;
-    text-decoration: none;
   }
   article {
     margin-bottom: 12px;
+  }
+  h4 {
+    margin-bottom: 12px;
+  }
+  p {
+    margin: 0;
+  }
+  h2 {
+    color: gold;
   }
 `;
 
