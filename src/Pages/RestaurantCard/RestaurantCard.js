@@ -16,7 +16,7 @@ export default function RestaurantCard({ entries, setAddress }) {
       entries[Math.floor(Math.random() * entries.length)];
     setNewRestaurant(newRandomRestaurant);
   }
-  console.log(newRestaurant);
+
   return (
     <>
       <RandomPage>
