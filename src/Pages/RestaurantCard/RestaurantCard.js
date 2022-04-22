@@ -5,6 +5,7 @@ import { GoGlobe } from 'react-icons/go';
 import CopyButton from '../../components/Button/CopyButton';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
 import Navigation from '../../components/Navigation/Navigation';
+import { fabClasses } from '@mui/material';
 
 export default function RestaurantCard({ entries, setAddress }) {
   const randomRestaurant = entries[Math.floor(Math.random() * entries.length)];
