@@ -17,33 +17,47 @@ export default function Categories({ entries, setAddress }) {
   return (
     <main>
       <ButtonSlideBar>
-        <Button onClick={() => handleSetCurrentCategory('Pizza')}>Pizza</Button>
-        <Button onClick={() => handleSetCurrentCategory('Mediterranean')}>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Pizza')}>
+          Pizza
+        </CategoryButton>
+        <CategoryButton
+          onClick={() => handleSetCurrentCategory('Mediterranean')}
+        >
           Mediterranean
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Asian')}>Asian</Button>
-        <Button onClick={() => handleSetCurrentCategory('Fine Dining')}>
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Asian')}>
+          Asian
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Fine Dining')}>
           Fine Dining
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Fish')}>Fish</Button>
-        <Button onClick={() => handleSetCurrentCategory('Vegetarian')}>
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Fish')}>
+          Fish
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Vegetarian')}>
           Vegetarian
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Indian')}>
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Indian')}>
           Indian
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Burger')}>
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Burger')}>
           Burger
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Cafe')}>Cafe</Button>
-        <Button onClick={() => handleSetCurrentCategory('Breakfast')}>
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Cafe')}>
+          Cafe
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Breakfast')}>
           Breakfast
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Sushi')}>Sushi</Button>
-        <Button onClick={() => handleSetCurrentCategory('German')}>
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Sushi')}>
+          Sushi
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('German')}>
           German
-        </Button>
-        <Button onClick={() => handleSetCurrentCategory('Vegan')}>Vegan</Button>
+        </CategoryButton>
+        <CategoryButton onClick={() => handleSetCurrentCategory('Vegan')}>
+          Vegan
+        </CategoryButton>
       </ButtonSlideBar>
 
       <RestaurantList>
@@ -55,7 +69,7 @@ export default function Categories({ entries, setAddress }) {
             <h4>Description:</h4>
             <article>{restaurant.description}</article>
             <a href={restaurant.url}>
-              <GoGlobe /> Link
+              <GoGlobe /> Book your table here
             </a>
 
             <CategoryTagList>
@@ -91,6 +105,9 @@ const RestaurantCard = styled.li`
   @media screen and (min-width: 700px) {
     width: 800px;
   }
+  @media screen and (min-width: 375px) {
+    width: 320px;
+  }
   border-image: linear-gradient(
     180deg,
     #fcd263 0%,
@@ -104,11 +121,18 @@ const RestaurantCard = styled.li`
   border-image-slice: 1;
 
   a {
-    text-decoration: none;
     color: gold;
+    font-size: small;
   }
   article {
     margin-bottom: 12px;
+  }
+  p {
+    margin: 0;
+  }
+  h4 {
+    margin-bottom: 12px;
+    font-size: small;
   }
 `;
 
@@ -147,4 +171,8 @@ const ButtonSlideBar = styled.ul`
   gap: 20px;
   overflow-x: auto;
   overflow-y: hidden;
+`;
+
+const CategoryButton = styled(Button)`
+  color: white;
 `;

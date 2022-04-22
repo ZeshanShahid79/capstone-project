@@ -42,4 +42,7 @@ const CopyToClipboardButton = styled(Button)`
   background: transparent;
   color: gold;
   border-color: goldenrod;
+  span {
+    align-items: center;
+  }
 `;
