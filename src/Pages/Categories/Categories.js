@@ -17,45 +17,82 @@ export default function Categories({ entries, setAddress }) {
   return (
     <main>
       <ButtonSlideBar>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Pizza')}>
+        <CategoryButton
+          isActive={currentCategory === 'Pizza'}
+          onClick={() => handleSetCurrentCategory('Pizza')}
+        >
           Pizza
         </CategoryButton>
         <CategoryButton
+          isActive={currentCategory === 'Mediterranean'}
           onClick={() => handleSetCurrentCategory('Mediterranean')}
         >
           Mediterranean
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Asian')}>
+        <CategoryButton
+          isActive={currentCategory === 'Asian'}
+          onClick={() => handleSetCurrentCategory('Asian')}
+        >
           Asian
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Fine Dining')}>
+        <CategoryButton
+          isActive={currentCategory === 'Fine Dining'}
+          onClick={() => handleSetCurrentCategory('Fine Dining')}
+        >
           Fine Dining
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Fish')}>
+        <CategoryButton
+          isActive={currentCategory === 'Fish'}
+          onClick={() => handleSetCurrentCategory('Fish')}
+        >
           Fish
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Vegetarian')}>
+        <CategoryButton
+          isActive={currentCategory === 'Vegetarian'}
+          onClick={() => handleSetCurrentCategory('Vegetarian')}
+        >
           Vegetarian
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Indian')}>
+        <CategoryButton
+          isActive={currentCategory === 'Indian'}
+          onClick={() => handleSetCurrentCategory('Indian')}
+        >
           Indian
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Burger')}>
+        <CategoryButton
+          isActive={currentCategory === 'Burger'}
+          onClick={() => handleSetCurrentCategory('Burger')}
+        >
           Burger
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Cafe')}>
+        <CategoryButton
+          isActive={currentCategory === 'Cafe'}
+          onClick={() => handleSetCurrentCategory('Cafe')}
+        >
           Cafe
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Breakfast')}>
+        <CategoryButton
+          isActive={currentCategory === 'Breakfast'}
+          onClick={() => handleSetCurrentCategory('Breakfast')}
+        >
           Breakfast
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Sushi')}>
+        <CategoryButton
+          isActive={currentCategory === 'Sushi'}
+          onClick={() => handleSetCurrentCategory('Sushi')}
+        >
           Sushi
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('German')}>
+        <CategoryButton
+          isActive={currentCategory === 'German'}
+          onClick={() => handleSetCurrentCategory('German')}
+        >
           German
         </CategoryButton>
-        <CategoryButton onClick={() => handleSetCurrentCategory('Vegan')}>
+        <CategoryButton
+          isActive={currentCategory === 'Vegan'}
+          onClick={() => handleSetCurrentCategory('Vegan')}
+        >
           Vegan
         </CategoryButton>
       </ButtonSlideBar>
@@ -174,5 +211,5 @@ const ButtonSlideBar = styled.ul`
 `;
 
 const CategoryButton = styled(Button)`
-  color: white;
+  color: ${({ isActive }) => (isActive ? `gold` : `white`)};
 `;
