@@ -47,7 +47,7 @@ const Bubble = styled.div`
   line-height: 25px;
   text-align: start;
   width: 250px;
-  height: 130px;
+  height: 180px;
   border-radius: 10px;
   padding: 6px;
   padding-left: 12px;
