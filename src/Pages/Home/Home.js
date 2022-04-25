@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <HomePage>
       <Bubble>
-        Deciding where and what to eat for lunch or dinner can be super easy,
-        but it can also be really tough.
-        <p>Let W.D.W.E figure it out!</p>
+        Deciding where and what to eat for Breakfast Lunch or Dinner can be
+        super easy, but it can also be really tough.
+        <p>Let W.D.W.E help you figuring it out!</p>
       </Bubble>
       <Gif
         src="https://media.giphy.com/media/GDqDZOPSZJC00/giphy.gif"
