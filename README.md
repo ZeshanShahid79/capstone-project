@@ -1,7 +1,7 @@
 # Capstone Project: W.D.W.E
 
 
-Where Do We Eat  makes it easy to pick a Restaurant for you to dine. Just click on the random button or choose from the categories and let u show the location on the Map! 
+Where Do We Eat  makes it easy to pick a Restaurant for you to dine at. Just click on the random button or choose from the categories and let u show the location on the Map! 
 
 ## Demo:
 
